@@ -1,7 +1,8 @@
 package io.github.lhug.adventofcode.twentytwentyone;
 
-import io.github.lhug.adventofcode.twentytwentyone.first.CourseCalculator;
+import io.github.lhug.adventofcode.twentytwentyone.second.CourseCalculator;
 import io.github.lhug.adventofcode.twentytwentyone.first.IncrementCounter;
+import io.github.lhug.adventofcode.twentytwentyone.third.BinaryDiagnostic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class Days {
         Days days = new Days();
         days.dayOne();
         days.dayTwo();
+        days.dayThree();
     }
 
     public void dayOne() {
@@ -45,5 +47,14 @@ public class Days {
         plotter.plot(input);
         System.out.println("Day two:");
         System.out.printf("final position: %d%n", plotter.hPosition() * plotter.depth());
+    }
+
+    private void dayThree() {
+        List<String> input = inputFrom("3");
+        var diagnostic = new BinaryDiagnostic();
+        diagnostic.parse(input);
+        System.out.println("Day 3:");
+        System.out.printf("power consumption: %d%n", diagnostic.gamma() * diagnostic.epsilon());
+        System.out.printf("life support rating: %d%n", diagnostic.oxygenRating() * diagnostic.co2Rating());
     }
 }
