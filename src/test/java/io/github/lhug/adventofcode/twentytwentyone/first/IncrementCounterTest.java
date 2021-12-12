@@ -1,11 +1,11 @@
 package io.github.lhug.adventofcode.twentytwentyone.first;
 
+import io.github.lhug.adventofcode.common.ResourceReader;
 import org.junit.jupiter.api.Test;
 
-import java.net.URL;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class IncrementCounterTest {
 
@@ -55,8 +55,7 @@ public class IncrementCounterTest {
 
     @Test
     void shouldReportSevenForProvidedTestData() {
-        URL resource = getClass().getResource("/2021/1/input.txt");
-        List<String> input = contentOf(resource).lines().toList();
+        List<String> input = ResourceReader.year(2021).day(1);
 
         long result = sut.increments(input);
 
@@ -83,8 +82,7 @@ public class IncrementCounterTest {
 
     @Test
     void shouldReturnExpectedResultsOnTriples() {
-        URL resource = getClass().getResource("/2021/1/input.txt");
-        List<String> input = contentOf(resource).lines().toList();
+        List<String> input = ResourceReader.year(2021).day(1);
 
         long result = sut.triples(input);
 

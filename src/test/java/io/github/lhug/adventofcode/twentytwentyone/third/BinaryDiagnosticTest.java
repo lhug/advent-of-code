@@ -1,5 +1,6 @@
 package io.github.lhug.adventofcode.twentytwentyone.third;
 
+import io.github.lhug.adventofcode.common.ResourceReader;
 import org.junit.jupiter.api.Test;
 
 import java.net.URL;
@@ -13,7 +14,7 @@ import static org.assertj.core.util.URLs.contentOf;
 
 public class BinaryDiagnosticTest {
 
-    private BinaryDiagnostic sut = new BinaryDiagnostic();
+    private final BinaryDiagnostic sut = new BinaryDiagnostic();
 
     private List<String> input;
 
@@ -140,8 +141,7 @@ public class BinaryDiagnosticTest {
 
     @Test
     void shouldReturnValuesForDataSet() {
-        URL resource = getClass().getResource("/2021/3/input.txt");
-        input = contentOf(Objects.requireNonNull(resource), StandardCharsets.UTF_8).lines().toList();
+        input = ResourceReader.year(2021).day(3);
 
         sut.parse(input);
 
@@ -175,8 +175,7 @@ public class BinaryDiagnosticTest {
 
     @Test
     void shouldDetermineResultsForDataSet() {
-        URL resource = getClass().getResource("/2021/3/input.txt");
-        input = contentOf(Objects.requireNonNull(resource), StandardCharsets.UTF_8).lines().toList();
+        input = ResourceReader.year(2021).day(3);
 
         sut.parse(input);
 

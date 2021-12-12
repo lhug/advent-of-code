@@ -1,15 +1,12 @@
 package io.github.lhug.adventofcode.twentytwentyone.second;
 
+import io.github.lhug.adventofcode.common.ResourceReader;
 import org.junit.jupiter.api.Test;
 
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.util.URLs.contentOf;
 
 public class CourseCalculatorTest {
 
@@ -124,8 +121,7 @@ public class CourseCalculatorTest {
 
     @Test
     void shouldCalculatePositionAsDefinedByTestData() {
-        URL resource = getClass().getResource("/2021/2/input.txt");
-        input = contentOf(Objects.requireNonNull(resource), StandardCharsets.UTF_8).lines().toList();
+        input = ResourceReader.year(2021).day(2);
 
         sut.plot(input);
 
