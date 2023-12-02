@@ -1,14 +1,22 @@
 # Advent of Code
 
 This contains my implementations for advent of code.
+Plans for this year, from day three:
 
-## Day 3
+Check in each "phase" separately, so I can review my own thought processes.
 
-Finding bitmask operations was interesting enough, as I never had much to do with those.
-As I finally reached part 2, I was stumped, as I had no idea how to add that to my current code.
-However, I found [this](1) reddit post, which helped me a lot in implementing this,
-as the idea of simply using `removeIf` on a list was lost on me.
+## 2023, Day 2
 
-After that, a whole lot of refactoring could take place.
+Expected to have to manipulate the expected values, too.
+Was not the case. Luckily, I separated the extraction from the processing in a way that made
+examining the data very simple. This made part two actually simpler, as no re-thinking was required.
 
-[1](https://www.reddit.com/r/adventofcode/comments/r7r0ff/comment/hnurgoh/?utm_source=share&utm_medium=web2x&context=3)
+## 2023, Day 1
+
+Man this was annoying. I actually tried to examine the input by character in phase one, however that quickly became
+too much work when phase two came around.
+Rewrote the entire thing to work with regex-matching.
+The solution is currently too complicated, maybe I will optimize later.
+
+What was REALLY annoying was that the test data did not contain a simple `twone` or similar as input,
+as this would be `21` and not `22`, requiring a change in mather processing.
