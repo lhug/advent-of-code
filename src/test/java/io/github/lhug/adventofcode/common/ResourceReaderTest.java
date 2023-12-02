@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.*;
 public class ResourceReaderTest {
 
     @Test
-    void shouldAllowAccessToResourcesA2021() {
+    void allows_access_to_resources_2021() {
         ResourceReader result = ResourceReader.year(2021);
 
         assertThat(result)
@@ -19,21 +19,21 @@ public class ResourceReaderTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenYearDoesNotExist() {
-        assertThatThrownBy(() -> ResourceReader.year(2019))
+    void throws_exception_when_year_does_not_exist() {
+        assertThatThrownBy(() -> ResourceReader.year(1912))
                 .isInstanceOf(NullPointerException.class)
-                .hasMessage("no input for year 2019");
+                .hasMessage("no input for year 1912");
     }
 
     @Test
-    void shouldReadLinesFromInputForDay() {
-        List<String> result = ResourceReader.year(2021).day(1);
+    void reads_input_for_day() {
+        String result = ResourceReader.year(2021).day(1);
 
-        assertThat(result).isEqualTo(linesOf(getClass().getResource("/2021/input_1.txt")));
+        assertThat(result).isEqualTo(contentOf(getClass().getResource("/2021/input_1.txt")));
     }
 
     @Test
-    void shouldThrowExceptionWhenInputForDayDoesNotExist() {
+    void throws_exception_when_input_for_day_does_not_exist() {
         ResourceReader reader = ResourceReader.year(2021);
 
         assertThatThrownBy(() -> reader.day(9999))

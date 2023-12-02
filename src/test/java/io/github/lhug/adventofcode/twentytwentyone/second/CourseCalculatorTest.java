@@ -121,7 +121,7 @@ public class CourseCalculatorTest {
 
     @Test
     void shouldCalculatePositionAsDefinedByTestData() {
-        input = ResourceReader.year(2021).day(2);
+        input = ResourceReader.year(2021).day(2).lines().toList();
 
         sut.plot(input);
 

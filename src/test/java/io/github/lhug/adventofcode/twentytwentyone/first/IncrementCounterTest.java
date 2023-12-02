@@ -55,7 +55,7 @@ public class IncrementCounterTest {
 
     @Test
     void shouldReportSevenForProvidedTestData() {
-        List<String> input = ResourceReader.year(2021).day(1);
+        List<String> input = ResourceReader.year(2021).day(1).lines().toList();
 
         long result = sut.increments(input);
 
@@ -82,7 +82,7 @@ public class IncrementCounterTest {
 
     @Test
     void shouldReturnExpectedResultsOnTriples() {
-        List<String> input = ResourceReader.year(2021).day(1);
+        List<String> input = ResourceReader.year(2021).day(1).lines().toList();
 
         long result = sut.triples(input);
 

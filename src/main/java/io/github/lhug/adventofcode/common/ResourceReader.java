@@ -1,9 +1,7 @@
 package io.github.lhug.adventofcode.common;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,13 +19,13 @@ public final class ResourceReader {
         return new ResourceReader(year);
     }
 
-    public List<String> day(int day) {
+    public String day(int day) {
         String resource = String.format(resourcePath, day);
-        InputStream stream = Objects.requireNonNull(
-                getClass().getResourceAsStream(resource),
-                "no input for day number " + day);
-        try(var reader = new BufferedReader(new InputStreamReader(stream))) {
-            return reader.lines().toList();
+        try(InputStream stream = getClass().getResourceAsStream(resource);) {
+            Objects.requireNonNull(stream, "no input for day number " + day);
+            var output = new ByteArrayOutputStream();
+            stream.transferTo(output);
+            return output.toString(StandardCharsets.UTF_8);
         } catch (IOException ex) {
             throw new IllegalArgumentException("could not read resource " + resource);
         }

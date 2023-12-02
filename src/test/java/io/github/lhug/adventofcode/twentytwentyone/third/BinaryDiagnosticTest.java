@@ -3,14 +3,10 @@ package io.github.lhug.adventofcode.twentytwentyone.third;
 import io.github.lhug.adventofcode.common.ResourceReader;
 import org.junit.jupiter.api.Test;
 
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.list;
-import static org.assertj.core.util.URLs.contentOf;
 
 public class BinaryDiagnosticTest {
 
@@ -141,7 +137,7 @@ public class BinaryDiagnosticTest {
 
     @Test
     void shouldReturnValuesForDataSet() {
-        input = ResourceReader.year(2021).day(3);
+        input = ResourceReader.year(2021).day(3).lines().toList();
 
         sut.parse(input);
 
@@ -175,7 +171,7 @@ public class BinaryDiagnosticTest {
 
     @Test
     void shouldDetermineResultsForDataSet() {
-        input = ResourceReader.year(2021).day(3);
+        input = ResourceReader.year(2021).day(3).lines().toList();
 
         sut.parse(input);
 

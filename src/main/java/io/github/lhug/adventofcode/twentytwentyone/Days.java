@@ -19,7 +19,7 @@ public class Days {
     }
 
     public void dayOne() {
-        List<String> input = reader.day(1);
+        List<String> input = reader.day(1).lines().toList();
         var cnt = new IncrementCounter();
         long increments = cnt.increments(input);
         long triples  = cnt.triples(input);
@@ -29,7 +29,7 @@ public class Days {
     }
 
     public void dayTwo() {
-        List<String> input = reader.day(2);
+        List<String> input = reader.day(2).lines().toList();
         var plotter = new CourseCalculator();
         plotter.plot(input);
         System.out.println("Day two:");
@@ -37,7 +37,7 @@ public class Days {
     }
 
     private void dayThree() {
-        List<String> input = reader.day(3);
+        List<String> input = reader.day(3).lines().toList();
         var diagnostic = new BinaryDiagnostic();
         diagnostic.parse(input);
         System.out.println("Day 3:");
