@@ -5,6 +5,12 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 3, Phase one
+
+Horrible, horrible problem, as I rarely work with problems like this.
+Let's see where this goes. I completely expect this to require the "free" numbers
+in phase two, but let's see where this is going.
+
 ## 2023, Day 2
 
 Expected to have to manipulate the expected values, too.

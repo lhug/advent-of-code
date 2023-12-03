@@ -3,6 +3,7 @@ package io.github.lhug.adventofcode.twentytwentythree;
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
+import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 
 public class Days {
 
@@ -12,6 +13,7 @@ public class Days {
         Days days = new Days();
         days.dayOne();
         days.dayTwo();
+        days.dayThree();
     }
 
     public void dayOne() {
@@ -27,5 +29,12 @@ public class Days {
         System.out.println("Results for day two:");
         System.out.println("Sum of possible games: " + game.calculatePossibleGames(input));
         System.out.println("Sum of powers: " + game.addPowers(input));
+    }
+
+    public void dayThree() {
+        var input = reader.day(3);
+        var calculator = new PartCalculator();
+        System.out.println("Results for day three:");
+        System.out.println("Sum of all parts: " + calculator.partSum(input));
     }
 }
