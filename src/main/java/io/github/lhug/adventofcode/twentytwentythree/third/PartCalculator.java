@@ -1,17 +1,21 @@
 package io.github.lhug.adventofcode.twentytwentythree.third;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 public class PartCalculator {
-    public int partSum(String input) {
-        var coordinates = symbolLocations(input);
-        var numbers = numbersAround(coordinates, input);
+
+    private final char[][] cells;
+
+    public PartCalculator(String input) {
+        this.cells = cellsFrom(input);
+    }
+    public int partSum() {
+        var coordinates = symbolLocations();
+        var numbers = numbersAround(coordinates);
         return numbers.stream().reduce(0, Integer::sum);
     }
 
-    public List<SymbolCoordinate> symbolLocations(String input) {
-        char[][] cells = cellsFrom(input);
+    public List<SymbolCoordinate> symbolLocations() {
         List<SymbolCoordinate> results = new ArrayList<>();
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells[i].length; j++) {
@@ -32,57 +36,97 @@ public class PartCalculator {
         return !Character.isDigit(offer) && !Objects.equals(offer, '.');
     }
 
-    public List<Integer> numbersAround(List<SymbolCoordinate> symbolCoordinates, String input) {
-        char[][] cells = cellsFrom(input);
-        List<Integer> detectedNumbers = new ArrayList<>();
-        for(SymbolCoordinate coordinate : symbolCoordinates) {
-            List<Point> points = new ArrayList<>();
-            points.add(new Point(coordinate.y - 1, coordinate.x - 1));
-            points.add(new Point(coordinate.y - 1, coordinate.x));
-            points.add(new Point(coordinate.y - 1, coordinate.x + 1));
-            points.add(new Point(coordinate.y, coordinate.x - 1));
-            points.add(new Point(coordinate.y, coordinate.x + 1));
-            points.add(new Point(coordinate.y + 1, coordinate.x - 1));
-            points.add(new Point(coordinate.y + 1, coordinate.x));
-            points.add(new Point(coordinate.y + 1, coordinate.x + 1));
-            Set<Integer> currentNums = new LinkedHashSet<>();
-            for (Point p : points) {
-                char c = cells[p.y][p.x];
-                if (Character.isDigit(c)) {
-                    StringBuilder s = new StringBuilder();
-                    int startIndex = p.x;
-                    char current = cells[p.y][startIndex];
-                    while (Character.isDigit(current)) {
-                        startIndex--;
-                        if (startIndex < 0) {
-                            break;
-                        } else {
-                            current = cells[p.y][startIndex];
-                        }
-                    }
-                    int endIndex = p.x;
-                    current = cells[p.y][endIndex];
-                    while (Character.isDigit(current)) {
-                        endIndex++;
-                        if (endIndex >= cells[p.y].length) {
-                            endIndex = cells[p.y].length;
-                            break;
-                        } else {
-                            current = cells[p.y][endIndex];
-                        }
-                    }
-                    for (int i = startIndex + 1; i < endIndex; i++) {
-                        s.append(cells[p.y][i]);
-                    }
-                    currentNums.add(Integer.parseInt(s.toString()));
+    public List<Integer> numbersAround(List<SymbolCoordinate> symbolCoordinates) {
+        return symbolCoordinates.stream()
+                .map(this::numbersAround)
+                .flatMap(List::stream)
+                .toList();
+    }
+
+    private List<Integer> numbersAround(SymbolCoordinate coordinate) {
+        List<Point> points = getPotentialPoints(coordinate);
+        Set<Integer> currentNums = new LinkedHashSet<>();
+        for (Point p : points) {
+            char c = cells[p.y][p.x];
+            if (Character.isDigit(c)) {
+                StringBuilder s = new StringBuilder();
+                int startIndex = startIndex(p.y, p.x);
+                int endIndex = endIndex(p.y, p.x);
+                for (int i = startIndex; i < endIndex; i++) {
+                    s.append(cells[p.y][i]);
                 }
+                currentNums.add(Integer.parseInt(s.toString()));
             }
-            detectedNumbers.addAll(currentNums);
         }
-        return detectedNumbers;
+        return new ArrayList<>(currentNums);
+    }
+
+    private int startIndex(int y, int x) {
+        int startIndex = x;
+        char current = cells[y][startIndex];
+        while (Character.isDigit(current)) {
+            startIndex--;
+            if (startIndex < 0) {
+                break;
+            } else {
+                current = cells[y][startIndex];
+            }
+        }
+        return startIndex + 1;
+    }
+
+    private int endIndex(int y, int x) {
+        int endIndex = x;
+        char current = cells[y][endIndex];
+        while (Character.isDigit(current)) {
+            endIndex++;
+            if (endIndex >= cells[y].length) {
+                endIndex = cells[y].length;
+                break;
+            } else {
+                current = cells[y][endIndex];
+            }
+        }
+        return endIndex;
+    }
+
+    private static List<Point> getPotentialPoints(SymbolCoordinate coordinate) {
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(coordinate.y - 1, coordinate.x - 1));
+        points.add(new Point(coordinate.y - 1, coordinate.x));
+        points.add(new Point(coordinate.y - 1, coordinate.x + 1));
+        points.add(new Point(coordinate.y, coordinate.x - 1));
+        points.add(new Point(coordinate.y, coordinate.x + 1));
+        points.add(new Point(coordinate.y + 1, coordinate.x - 1));
+        points.add(new Point(coordinate.y + 1, coordinate.x));
+        points.add(new Point(coordinate.y + 1, coordinate.x + 1));
+        return points;
+    }
+
+    public int gearRatio() {
+        var coordinates = symbolLocations();
+        return findGears(coordinates).stream()
+                .mapToInt(Gear::ratio)
+                .sum();
+
+    }
+
+    public List<Gear> findGears(List<SymbolCoordinate> coordinates) {
+        return coordinates.stream()
+                .filter(coordinate -> coordinate.symbol == '*')
+                .map(this::numbersAround)
+                .filter(list -> list.size() == 2)
+                .map(list -> new Gear(list.get(0), list.get(1)))
+                .toList();
     }
 
     public record SymbolCoordinate(char symbol, int y, int x) {}
 
     private record Point(int y, int x) {}
+
+    public record Gear(int left, int right) {
+        public int ratio() {
+            return left * right;
+        }
+    }
 }

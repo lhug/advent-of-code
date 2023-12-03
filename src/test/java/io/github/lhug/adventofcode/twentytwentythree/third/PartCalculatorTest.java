@@ -1,14 +1,11 @@
 package io.github.lhug.adventofcode.twentytwentythree.third;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PartCalculatorTest {
 
@@ -25,11 +22,11 @@ class PartCalculatorTest {
             .664.598..
             """;
 
-    private final PartCalculator sut = new PartCalculator();
+    private final PartCalculator sut = new PartCalculator(input_1);
 
     @Test
     void returns_locations_of_symbols_in_input() {
-        List<SymbolCoordinate> results = sut.symbolLocations(input_1);
+        List<SymbolCoordinate> results = sut.symbolLocations();
 
         assertThat(results).containsExactly(
                 new SymbolCoordinate('*', 1, 3),
@@ -44,8 +41,7 @@ class PartCalculatorTest {
     @Test
     void finds_single_number_around_coordinate() {
         List<Integer> results = sut.numbersAround(
-                List.of(new SymbolCoordinate('*', 4, 3)),
-                input_1);
+                List.of(new SymbolCoordinate('*', 4, 3)));
 
         assertThat(results).containsExactly(617);
     }
@@ -53,8 +49,7 @@ class PartCalculatorTest {
     @Test
     void finds_multiple_numbers_around_coordinate() {
         List<Integer> results = sut.numbersAround(
-                List.of(new SymbolCoordinate('*', 1, 3)),
-                input_1);
+                List.of(new SymbolCoordinate('*', 1, 3)));
 
         assertThat(results).containsExactly(467, 35);
     }
@@ -64,16 +59,15 @@ class PartCalculatorTest {
         List<Integer> results = sut.numbersAround(
                 List.of(
                         new SymbolCoordinate('*', 4, 3),
-                        new SymbolCoordinate('*', 1, 3)),
-                input_1);
+                        new SymbolCoordinate('*', 1, 3)));
 
         assertThat(results).containsExactly(617, 467, 35);
     }
 
     @Test
     void finds_all_numbers_in_test_input() {
-        var coordinates = sut.symbolLocations(input_1);
-        var results = sut.numbersAround(coordinates, input_1);
+        var coordinates = sut.symbolLocations();
+        var results = sut.numbersAround(coordinates);
 
         assertThat(results).containsExactly(
                 467, 35,
@@ -87,8 +81,34 @@ class PartCalculatorTest {
 
     @Test
     void calculates_part_sum() {
-        int result = sut.partSum(input_1);
+        int result = sut.partSum();
 
         assertThat(result).isEqualTo(4361);
+    }
+
+    @Test
+    void finds_all_gears() {
+        var offer = sut.symbolLocations();
+
+        List<Gear> results = sut.findGears(offer);
+
+        assertThat(results).containsExactly(
+                new Gear(467, 35),
+                new Gear(755, 598)
+        );
+    }
+
+    @Test
+    void returns_gear_ratio() {
+        Gear offer = new Gear(5, 5);
+
+        assertThat(offer.ratio()).isEqualTo(25);
+    }
+
+    @Test
+    void calculates_gear_ratio() {
+        int result = sut.gearRatio();
+
+        assertThat(result).isEqualTo(467835);
     }
 }

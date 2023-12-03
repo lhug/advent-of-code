@@ -33,8 +33,9 @@ public class Days {
 
     public void dayThree() {
         var input = reader.day(3);
-        var calculator = new PartCalculator();
+        var calculator = new PartCalculator(input);
         System.out.println("Results for day three:");
-        System.out.println("Sum of all parts: " + calculator.partSum(input));
+        System.out.println("Sum of all parts: " + calculator.partSum());
+        System.out.println("Sum of all gear ratios: " + calculator.gearRatio());
     }
 }

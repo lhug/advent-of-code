@@ -5,6 +5,18 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 3, Phase two
+
+Oh my, my initial thought of "the symbol will be relevant later on, just add it to the record" was obviously good.
+After some minor refactoring to make the actual logic a little more legible, implementing the new requirements was
+relatively simple.
+
+A lot of improvements are obviously possible, for example there is most likely a better way to calculate the indexes
+and to avoid duplicating the found numbers, but I am reasonably content with this - it works, and it is relatively
+easy to understand what it does, I think.
+
+I hope my opinion on this will not change much when I look back at this in 2024.
+
 ## 2023, Day 3, Phase one
 
 Horrible, horrible problem, as I rarely work with problems like this.
