@@ -10,7 +10,7 @@ public class Days {
 
     private final ResourceReader reader = ResourceReader.year(2023);
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
         Days days = new Days();
         days.dayOne();
         days.dayTwo();
@@ -46,5 +46,6 @@ public class Days {
         var scratchcards = new Scratchcards();
         System.out.println("Results for day four:");
         System.out.println("Sum of all card scores: " + scratchcards.winningSum(input));
+        System.out.println("Sum of all collected cards: " + scratchcards.collectedCards(input));
     }
 }

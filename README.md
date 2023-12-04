@@ -5,6 +5,17 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 4, Phase two
+
+Okay, so my expectation was not met. However, the calculation was relatively easy to make.
+I did, however, stumble around A LOT.
+This is what happens when one is used to testing everything and has no clear idea
+where to test from here. Now that I have my solution, I am certain I could devise a way
+to test this correctly, apart from the pure "count matches" and "sum correctly" tests I added.
+
+I am not happy with my result, but I am currently too aggravated over my own stupidity that I don't
+feel like cleaning it at all.
+
 ## 2023, Day 4, Phase one
 
 Oh boy, this looked so simple, but many tiny pitfalls along the way.

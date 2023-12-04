@@ -1,7 +1,6 @@
 package io.github.lhug.adventofcode.twentytwentythree.fourth;
 
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards.Game;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -59,13 +58,30 @@ class ScratchcardsTest {
                 .toList();
     }
 
-
-
-
     @Test
     void returns_winning_sum() {
         int result = sut.winningSum(input);
 
         assertThat(result).isEqualTo(13);
+    }
+
+    @Test
+    void returns_number_of_winning_matches() {
+        Game offer = new Game(
+                1,
+                List.of(1, 2, 3, 4, 5),
+                List.of(2, 3, 4, 6, 7)
+        );
+
+        int result = offer.matchCount();
+
+        assertThat(result).isEqualTo(3);
+    }
+
+    @Test
+    void returns_collected_cards() {
+        int result = sut.collectedCards(input);
+
+        assertThat(result).isEqualTo(30);
     }
 }
