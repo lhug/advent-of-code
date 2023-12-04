@@ -38,6 +38,6 @@ public class ResourceReaderTest {
 
         assertThatThrownBy(() -> reader.day(9999))
                 .isInstanceOf(NullPointerException.class)
-                .hasMessage("no input for day number 9999");
+                .hasMessage("no input for day id 9999");
     }
 }

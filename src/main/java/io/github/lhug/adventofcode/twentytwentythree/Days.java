@@ -2,6 +2,7 @@ package io.github.lhug.adventofcode.twentytwentythree;
 
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
+import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 
@@ -14,6 +15,7 @@ public class Days {
         days.dayOne();
         days.dayTwo();
         days.dayThree();
+        days.dayFour();
     }
 
     public void dayOne() {
@@ -37,5 +39,12 @@ public class Days {
         System.out.println("Results for day three:");
         System.out.println("Sum of all parts: " + calculator.partSum());
         System.out.println("Sum of all gear ratios: " + calculator.gearRatio());
+    }
+
+    public void dayFour() {
+        var input = reader.day(4);
+        var scratchcards = new Scratchcards();
+        System.out.println("Results for day four:");
+        System.out.println("Sum of all card scores: " + scratchcards.winningSum(input));
     }
 }

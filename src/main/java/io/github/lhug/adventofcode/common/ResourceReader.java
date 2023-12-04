@@ -22,7 +22,7 @@ public final class ResourceReader {
     public String day(int day) {
         String resource = String.format(resourcePath, day);
         try(InputStream stream = getClass().getResourceAsStream(resource);) {
-            Objects.requireNonNull(stream, "no input for day number " + day);
+            Objects.requireNonNull(stream, "no input for day id " + day);
             var output = new ByteArrayOutputStream();
             stream.transferTo(output);
             return output.toString(StandardCharsets.UTF_8);

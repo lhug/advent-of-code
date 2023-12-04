@@ -5,6 +5,14 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 4, Phase one
+
+Oh boy, this looked so simple, but many tiny pitfalls along the way.
+Sudden empty Strings while converting numbers, buffering spaces etc...
+
+However, I fully expect that phase two will make use of either the game ids or the
+unmatched numbers. We'll see.
+
 ## 2023, Day 3, Phase two
 
 Oh my, my initial thought of "the symbol will be relevant later on, just add it to the record" was obviously good.
