@@ -5,6 +5,16 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 5, phase one
+
+Annoying, annoying, annoying.
+After programming around and finding wonderful solutions for integers, I ran the actual test input and
+everything immediately crashed and burned, as the values were slightly too large to be accommodated in an int.
+Then, after painstakingly changing everything to Long, the application crashed due to memory issues.
+Who would have suspected that writing multiple maps with several million entries may be a bit too much?
+
+So, I ended up scrapping the entire thing and created utility classes. This helped a lot.
+
 ## 2023, Day 4, Phase two
 
 Okay, so my expectation was not met. However, the calculation was relatively easy to make.

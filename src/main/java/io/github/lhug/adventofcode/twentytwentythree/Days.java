@@ -1,6 +1,7 @@
 package io.github.lhug.adventofcode.twentytwentythree;
 
 import io.github.lhug.adventofcode.common.ResourceReader;
+import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
@@ -16,6 +17,7 @@ public class Days {
         days.dayTwo();
         days.dayThree();
         days.dayFour();
+        days.dayFive();
     }
 
     public void dayOne() {
@@ -47,5 +49,13 @@ public class Days {
         System.out.println("Results for day four:");
         System.out.println("Sum of all card scores: " + scratchcards.winningSum(input));
         System.out.println("Sum of all collected cards: " + scratchcards.collectedCards(input));
+    }
+
+    public void dayFive() {
+        var input = reader.day(5);
+        var fertilizer = new Fertilizer();
+        fertilizer.parse(input);
+        System.out.println("Results for day five:");
+        System.out.println("Lowest location value: " + fertilizer.lowestLocationForSeeds());
     }
 }
