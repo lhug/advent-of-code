@@ -5,6 +5,7 @@ import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
+import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 
 import java.time.ZonedDateTime;
@@ -20,6 +21,7 @@ public class Days {
         days.dayThree();
         days.dayFour();
         days.dayFive();
+        days.daySix();
     }
 
     public void dayOne() {
@@ -60,5 +62,13 @@ public class Days {
         System.out.println("Results for day five:");
         System.out.println("Lowest location value: " + fertilizer.lowestLocationForSeeds());
         System.out.println("Lowest location for range: " + fertilizer.lowestLocationForSeedRange(fertilizer.seedRanges()));
+    }
+
+    public void daySix() {
+        var input = reader.day(6);
+        var race = new BoatRace();
+        race.parse(input);
+        System.out.println("Results for day six:");
+        System.out.println("Error Margin Factor: " + race.errorMargin(race.races()));
     }
 }

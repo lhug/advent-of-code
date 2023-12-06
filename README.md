@@ -5,6 +5,11 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 6, phase one
+
+What a relief after day five. This was rather simple, a little bit of math and calculations, and
+actually understandable puzzle inputs.
+
 ## 20223, Day 5, phase two
 
 I hate it. I am not sure why, but this took me WAY longer than it should have.
