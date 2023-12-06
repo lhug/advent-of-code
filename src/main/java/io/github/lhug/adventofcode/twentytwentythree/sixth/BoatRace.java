@@ -3,22 +3,21 @@ package io.github.lhug.adventofcode.twentytwentythree.sixth;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.BiFunction;
 
 public class BoatRace {
 
     private final List<SingleRace> races = new ArrayList<>();
-    public int numberOfWinningScenarios(SingleRace race) {
-        int count = 0;
+    public long numberOfWinningScenarios(SingleRace race) {
+        long count = 0;
         for (int i = 0; i < race.time(); i++) {
-            int result = i * (race.time() - i);
+            long result = i * (race.time() - i);
             if (result > race.distance())
                 count++;
         }
         return count;
     }
 
-    public void parse(String input) {
+    public void parseManyRaces(String input) {
         List<Integer> times = new ArrayList<>();
         List<Integer> distances = new ArrayList<>();
         var scanner = new Scanner(input);
@@ -39,9 +38,19 @@ public class BoatRace {
         return races;
     }
 
-    public int errorMargin(List<SingleRace> races) {
+    public long errorMargin(List<SingleRace> races) {
         return races.stream()
-                .mapToInt(this::numberOfWinningScenarios)
+                .mapToLong(this::numberOfWinningScenarios)
                 .reduce(1, Math::multiplyExact);
+    }
+
+    public SingleRace parseRace(String input) {
+        long[] result = input.lines()
+                .map(line -> line.split(": "))
+                .map(parts -> parts[1])
+                .map(numbers -> numbers.replace(" ", ""))
+                .mapToLong(Long::parseLong)
+                .toArray();
+        return new SingleRace(result[0], result[1]);
     }
 }

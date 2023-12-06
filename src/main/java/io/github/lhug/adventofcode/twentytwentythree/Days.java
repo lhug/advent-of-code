@@ -8,8 +8,6 @@ import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
 import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 
-import java.time.ZonedDateTime;
-
 public class Days {
 
     private final ResourceReader reader = ResourceReader.year(2023);
@@ -67,8 +65,9 @@ public class Days {
     public void daySix() {
         var input = reader.day(6);
         var race = new BoatRace();
-        race.parse(input);
+        race.parseManyRaces(input);
         System.out.println("Results for day six:");
         System.out.println("Error Margin Factor: " + race.errorMargin(race.races()));
+        System.out.println("Error Margin for single race: " + race.numberOfWinningScenarios(race.parseRace(input)));
     }
 }

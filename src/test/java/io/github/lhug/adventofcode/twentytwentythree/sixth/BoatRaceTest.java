@@ -7,8 +7,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BoatRaceTest {
 
@@ -21,7 +19,7 @@ class BoatRaceTest {
 
     @Test
     void converts_input_to_single_races() {
-        sut.parse(input);
+        sut.parseManyRaces(input);
 
         List<SingleRace> results = sut.races();
 
@@ -41,17 +39,26 @@ class BoatRaceTest {
     void calculates_number_ob_winning_scenarios_for_passed_time_and_distance(int time, int dist, int wins) {
         SingleRace race = new SingleRace(time, dist);
 
-        int result = sut.numberOfWinningScenarios(race);
+        long result = sut.numberOfWinningScenarios(race);
 
         assertThat(result).isEqualTo(wins);
     }
 
     @Test
     void calculates_error_margin() {
-        sut.parse(input);
+        sut.parseManyRaces(input);
 
-        int result = sut.errorMargin(sut.races());
+        long result = sut.errorMargin(sut.races());
 
         assertThat(result).isEqualTo(288);
+    }
+
+    @Test
+    void parses_single_race() {
+        SingleRace result = sut.parseRace(input);
+
+        assertThat(result).isEqualTo(
+                new SingleRace(71530, 940200)
+        );
     }
 }

@@ -5,6 +5,10 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 6, phase two
+
+The modification was also very simple. Not much to do except change the parser.
+
 ## 2023, Day 6, phase one
 
 What a relief after day five. This was rather simple, a little bit of math and calculations, and
