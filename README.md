@@ -5,6 +5,17 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 20223, Day 5, phase two
+
+I hate it. I am not sure why, but this took me WAY longer than it should have.
+At every turn there were minor inconveniences. After a certain point, I was unwilling to change
+my data model, which, in retrospect, would potentially have helped. Now this works, and it doesn't
+even take too long, less than a second, but still.
+
+I definitively have learned something here, about matching ranges, and I am very certain that
+this, too, can be done better. But I am finished and all tests pass.
+So.
+
 ## 2023, Day 5, phase one
 
 Annoying, annoying, annoying.

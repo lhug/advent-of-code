@@ -7,6 +7,8 @@ import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 
+import java.time.ZonedDateTime;
+
 public class Days {
 
     private final ResourceReader reader = ResourceReader.year(2023);
@@ -57,5 +59,6 @@ public class Days {
         fertilizer.parse(input);
         System.out.println("Results for day five:");
         System.out.println("Lowest location value: " + fertilizer.lowestLocationForSeeds());
+        System.out.println("Lowest location for range: " + fertilizer.lowestLocationForSeedRange(fertilizer.seedRanges()));
     }
 }
