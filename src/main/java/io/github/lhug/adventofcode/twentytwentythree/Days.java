@@ -5,6 +5,7 @@ import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
+import io.github.lhug.adventofcode.twentytwentythree.seventh.CamelCards;
 import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 
@@ -20,6 +21,7 @@ public class Days {
         days.dayFour();
         days.dayFive();
         days.daySix();
+        days.daySeven();
     }
 
     public void dayOne() {
@@ -69,5 +71,13 @@ public class Days {
         System.out.println("Results for day six:");
         System.out.println("Error Margin Factor: " + race.errorMargin(race.races()));
         System.out.println("Error Margin for single race: " + race.numberOfWinningScenarios(race.parseRace(input)));
+    }
+
+    public void daySeven() {
+        var input = reader.day(7);
+        var game = new CamelCards();
+        game.parse(input);
+        System.out.println("Results for day seven:");
+        System.out.println("Overall Winnings: " + game.calculateWinnings());
     }
 }

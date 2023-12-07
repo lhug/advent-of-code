@@ -5,6 +5,14 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 7, phase one
+
+More fun! I have rarely had to work with comparators, but so far, everything works as intended.
+Maybe too many test cases, but I have had edge cases ruin my day before, so better to include
+as many edge cases as I think are reasonable.
+
+I think that part two will contain slight differences in ordering, so I chose to not order the list automatically.
+
 ## 2023, Day 6, phase two
 
 The modification was also very simple. Not much to do except change the parser.
