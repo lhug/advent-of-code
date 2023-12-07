@@ -5,6 +5,15 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 7, phase two
+
+I was right, only in the wrong way.
+This took a lot more rework than I'd have liked. The "simplicity" of having the game comparable
+has turned out to be a liability.
+Also, the card order needed to be redone entirely.
+The solution works, but can be improved. Maybe when all is done, I'll get to that,
+but then again, it works and does so correctly.
+
 ## 2023, Day 7, phase one
 
 More fun! I have rarely had to work with comparators, but so far, everything works as intended.

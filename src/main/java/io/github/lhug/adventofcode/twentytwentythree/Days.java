@@ -76,8 +76,10 @@ public class Days {
     public void daySeven() {
         var input = reader.day(7);
         var game = new CamelCards();
-        game.parse(input);
+        game.parse(input, CamelCards.CardOrder.DEFAULT);
         System.out.println("Results for day seven:");
-        System.out.println("Overall Winnings: " + game.calculateWinnings());
+        System.out.println("Overall Winnings: " + game.calculateWinnings(CamelCards.CardOrder.DEFAULT));
+        game.parse(input, CamelCards.CardOrder.JOKERS);
+        System.out.println("Overall Winnings with Joker set: " + game.calculateWinnings(CamelCards.CardOrder.JOKERS));
     }
 }
