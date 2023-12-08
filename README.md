@@ -5,6 +5,17 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 8, phase two
+
+God dammit. Well, to look at the bright side: I learned a thing or two about parallel processing.
+For example, I had no idea what a CompletionService is, or how to actually use Futures.
+It all turned out to be quite useless, though, as - since the required amount of steps was in the
+billions (or trillions for uncultured people :P) this was not doable in a reasonable amount of time.
+
+So, for the first time (yes, I did day five on my own) I had to turn to reddit, because I did not spot
+the pattern, despite having prepared for EXACTLY THAT in the first step.
+Shame on me.
+
 ## 2023, Day 8, phase one
 
 Simple mapping. That was fun. And luckily, I did anticipate the fact that not all steps will be

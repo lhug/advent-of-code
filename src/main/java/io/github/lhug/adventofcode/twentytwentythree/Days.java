@@ -90,5 +90,6 @@ public class Days {
         var game = new HauntedWasteland(input);
         System.out.println("Results for day eight:");
         System.out.println("Steps from AAA to ZZZ: " + game.stepCount());
+        System.out.println("Ghost Steps: " + game.ghostStepCount());
     }
 }

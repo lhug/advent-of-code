@@ -57,10 +57,14 @@ public class HauntedWasteland {
     }
 
     public List<String> findPath(String start, String end) {
+        return findPath(start, offer -> offer.equals(end));
+    }
+
+    public List<String> findPath(String start, Predicate<String> end) {
         int index = 0;
         List<String> steps = new ArrayList<>();
         String currentStep = start;
-        while (!currentStep.equals(end)) {
+        while (!end.test(currentStep)) {
             if(index >= instructionLoop.size()) {
                 index = 0;
             }
@@ -70,6 +74,36 @@ public class HauntedWasteland {
             steps.add(currentStep);
         }
         return steps;
+    }
+
+    public long ghostStepCount() {
+        List<List<String>> results = new ArrayList<>();
+        var startingPoints = startPoints();
+        for (String start : startingPoints) {
+            results.add(findPath(start, offer -> offer.endsWith("Z")));
+        }
+        return results.stream()
+                .mapToLong(List::size)
+                .reduce(1L, this::lcm);
+    }
+
+    private long lcm(long left, long right) {
+        return left * right / (gcd(left, right));
+    }
+
+    private long gcd(long left, long right) {
+        while(right > 0) {
+            long temp = right;
+            right = left % right;
+            left = temp;
+        }
+        return left;
+    }
+
+    private List<String> startPoints() {
+        return ways.keySet().stream()
+                .filter(key -> key.endsWith("A"))
+                .toList();
     }
 
     public enum Direction {
