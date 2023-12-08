@@ -1,6 +1,7 @@
 package io.github.lhug.adventofcode.twentytwentythree;
 
 import io.github.lhug.adventofcode.common.ResourceReader;
+import io.github.lhug.adventofcode.twentytwentythree.eigth.HauntedWasteland;
 import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
@@ -22,6 +23,7 @@ public class Days {
         days.dayFive();
         days.daySix();
         days.daySeven();
+        days.dayEight();
     }
 
     public void dayOne() {
@@ -81,5 +83,12 @@ public class Days {
         System.out.println("Overall Winnings: " + game.calculateWinnings(CamelCards.CardOrder.DEFAULT));
         game.parse(input, CamelCards.CardOrder.JOKERS);
         System.out.println("Overall Winnings with Joker set: " + game.calculateWinnings(CamelCards.CardOrder.JOKERS));
+    }
+
+    public void dayEight() {
+        var input = reader.day(8);
+        var game = new HauntedWasteland(input);
+        System.out.println("Results for day eight:");
+        System.out.println("Steps from AAA to ZZZ: " + game.stepCount());
     }
 }

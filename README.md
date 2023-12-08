@@ -5,6 +5,11 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 8, phase one
+
+Simple mapping. That was fun. And luckily, I did anticipate the fact that not all steps will be
+the same letter three times.
+
 ## 2023, Day 7, phase two
 
 I was right, only in the wrong way.
