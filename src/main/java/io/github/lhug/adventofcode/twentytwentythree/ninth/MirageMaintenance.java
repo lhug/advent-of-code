@@ -41,4 +41,11 @@ public class MirageMaintenance {
                 ? 0
                 : recurseToLastValue(getNext(input)) + input.getLast();
     }
+
+    public long sumPreviousSteps() {
+        return values().stream()
+                .map(List::reversed)
+                .mapToLong(this::recurseToLastValue)
+                .sum();
+    }
 }

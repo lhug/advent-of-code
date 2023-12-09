@@ -54,4 +54,20 @@ class MirageMaintenanceTest {
 
         assertThat(sut.recurseToLastValue(input)).isEqualTo(18L);
     }
+
+    @Test
+    void returns_previous_prediction() {
+        var input = List.of(0L, 3L, 6L, 9L, 12L, 15L).reversed();
+
+        long result = sut.recurseToLastValue(input);
+
+        assertThat(result).isEqualTo(-3L);
+    }
+
+    @Test
+    void returns_sum_of_all_previous_steps() {
+        long result = sut.sumPreviousSteps();
+
+        assertThat(result).isEqualTo(2L);
+    }
 }

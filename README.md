@@ -5,6 +5,13 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 9, phase two
+
+Well... that was easy. I don't think my initial thought would have had a problem here, but
+the fact that it was off by eight means that this approach is definitively better.
+Since reading the sequence from right to left and then following the same approach as before made this
+rather simple.
+
 ## 2023, Day 9, phase one
 
 I had a little time today and did some optimizations.

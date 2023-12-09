@@ -100,5 +100,6 @@ public class Days {
         var game = new MirageMaintenance(input);
         System.out.println("Results for day nine:");
         System.out.println("Sum of extrapolated values: " + game.sumNextSteps());
+        System.out.println("Sum of previous values: " + game.sumPreviousSteps());
     }
 }
