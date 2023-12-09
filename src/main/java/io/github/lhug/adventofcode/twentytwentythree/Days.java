@@ -5,6 +5,7 @@ import io.github.lhug.adventofcode.twentytwentythree.eigth.HauntedWasteland;
 import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
+import io.github.lhug.adventofcode.twentytwentythree.ninth.MirageMaintenance;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
 import io.github.lhug.adventofcode.twentytwentythree.seventh.CamelCards;
 import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
@@ -24,6 +25,7 @@ public class Days {
         days.daySix();
         days.daySeven();
         days.dayEight();
+        days.dayNine();
     }
 
     public void dayOne() {
@@ -91,5 +93,12 @@ public class Days {
         System.out.println("Results for day eight:");
         System.out.println("Steps from AAA to ZZZ: " + game.stepCount());
         System.out.println("Ghost Steps: " + game.ghostStepCount());
+    }
+
+    public void dayNine() {
+        var input = reader.day(9);
+        var game = new MirageMaintenance(input);
+        System.out.println("Results for day nine:");
+        System.out.println("Sum of extrapolated values: " + game.sumNextSteps());
     }
 }

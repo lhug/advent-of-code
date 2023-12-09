@@ -5,6 +5,15 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 9, phase one
+
+I had a little time today and did some optimizations.
+The first step I took was to keep track of all values, to be prepared for any kind of
+"yes, but what if" shenanigans, but I realized that it would be very unlikely to insert such a condition into each puzzle input.
+Contrary to day eight in which there was a clear pattern, this would not be as simple, so I optimized for recurstion.
+
+I am unsure why my manual approach was off by eight, though.
+
 ## 2023, Day 8, phase two
 
 God dammit. Well, to look at the bright side: I learned a thing or two about parallel processing.
