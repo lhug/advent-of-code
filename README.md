@@ -5,6 +5,12 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+# 2023, Day 10, phase one
+
+I am very certain that there is a better way to do this.
+However, I am content with this, as it does follow and "optimizes" for not following a single line
+and then dividing the steps in half.
+
 ## 2023, Day 9, phase two
 
 Well... that was easy. I don't think my initial thought would have had a problem here, but

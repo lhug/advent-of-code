@@ -9,6 +9,7 @@ import io.github.lhug.adventofcode.twentytwentythree.ninth.MirageMaintenance;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
 import io.github.lhug.adventofcode.twentytwentythree.seventh.CamelCards;
 import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
+import io.github.lhug.adventofcode.twentytwentythree.tenth.PipeMaze;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 
 public class Days {
@@ -26,6 +27,7 @@ public class Days {
         days.daySeven();
         days.dayEight();
         days.dayNine();
+        days.dayTen();
     }
 
     public void dayOne() {
@@ -101,5 +103,12 @@ public class Days {
         System.out.println("Results for day nine:");
         System.out.println("Sum of extrapolated values: " + game.sumNextSteps());
         System.out.println("Sum of previous values: " + game.sumPreviousSteps());
+    }
+
+    public void dayTen() {
+        var input = reader.day(10);
+        var game = new PipeMaze();
+        System.out.println("Results for day 10:");
+        System.out.println("Farthest loop step: " + game.farthest(input));
     }
 }
