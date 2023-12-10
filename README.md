@@ -5,7 +5,22 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
-# 2023, Day 10, phase one
+## 2023, Day 20, phase two
+
+Again, reddit was my savior here. I am not that versed in matters of geometrics.
+I have never before heard of Picks Theorem, or the Shoelace formula. Luckily, this
+is not a challenge to show how great one is, but to learn.
+
+I made a lot of mistakes, for example, mistaking the nodes (used for the shoelace formula)
+with the boundary lattice points.
+
+For reasons I do not understand, manually collecting all coordinates along the way (which I tried first)
+ran WAY longer than the mess of hoops I am jumping now.
+
+I have seen an elegant solution for the mapping in haskell, basically translating any symbol into modifiers (i.e. '|' becoming (0,2) transform).
+I had that idea, but my caution in not being able to distinguish if this must be + or - 2 led me to choose a different path.
+
+## 2023, Day 10, phase one
 
 I am very certain that there is a better way to do this.
 However, I am content with this, as it does follow and "optimizes" for not following a single line

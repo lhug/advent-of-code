@@ -110,5 +110,6 @@ public class Days {
         var game = new PipeMaze();
         System.out.println("Results for day 10:");
         System.out.println("Farthest loop step: " + game.farthest(input));
+        System.out.println("Points on grid: " + game.pointsInArea(input));
     }
 }

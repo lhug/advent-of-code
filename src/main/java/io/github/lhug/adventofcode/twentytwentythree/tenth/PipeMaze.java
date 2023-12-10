@@ -27,6 +27,60 @@ public class PipeMaze {
         return stepCount;
     }
 
+    public long pointsInArea(String input) {
+        var map = toNavigableArray(input);
+        var start = findStart(map);
+        var paths = findConnectedPoints(map, start);
+        replaceStartNode(start, paths.get(0).to(), paths.get(1).to(), map);
+        var nodes = findNodes(map, paths.get(0));
+        var area = area(nodes);
+        long points = farthest(input) * 2;
+        return picksTheorem(area, points);
+    }
+
+    private long picksTheorem(long area, long nodeCount) {
+        long boundaryPoints = nodeCount / 2;
+        return area - boundaryPoints + 1;
+    }
+
+    private long area(List<Coordinate> coordinates) {
+        long area = 0;
+        for (int i = 0; i < coordinates.size() - 1; i++) {
+            var right = coordinates.get(i);
+            var left = coordinates.get(i+1);
+            area += ((long) right.x * left.y) - ((long) left.x * right.y);
+        }
+        var last = coordinates.getLast();
+        var first = coordinates.getFirst();
+        area += ((long) last.x * first.y) - ((long) first.x * last.y);
+        return Math.abs(area) / 2;
+    }
+
+    private void replaceStartNode(Coordinate start, Coordinate first, Coordinate second, String[][] map) {
+        int diffOne = first.y() - second.y();
+        int diffTwo = first.x() - second.x();
+        String symbol = getSymbol(diffOne, diffTwo);
+        map[start.y][start.x] = symbol;
+    }
+
+    private String getSymbol(int diffY, int diffX) {
+        if(diffY == 0) {
+            return "-";
+        }
+        if (diffX == 0) {
+            return "|";
+        }
+        if (diffY < 0) {
+            return diffX < 0
+                    ? "7"
+                    : "F";
+        } else {
+            return diffX < 0
+                    ? "J"
+                    : "L";
+        }
+    }
+
     private String[][] toNavigableArray(String input) {
         return input.lines().map(line -> line.split(""))
                 .toArray(String[][]::new);
@@ -99,6 +153,25 @@ public class PipeMaze {
             default ->
                     throw new IllegalArgumentException("No valid path from " + path.from() + " to " + path.to() + " using connector " + path.connector);
         };
+    }
+
+    private List<Coordinate> findNodes(String[][] map, Path first) {
+        List<String> nodeSymbols = List.of("7", "L", "J", "F");
+        List<Coordinate> nodes = new ArrayList<>();
+        Coordinate start = first.from;
+        if(nodeSymbols.contains(nextSymbol(map, start))) {
+            nodes.add(start);
+        }
+        Path current = first;
+        while(!current.to.equals(start)) {
+            if(nodeSymbols.contains(current.connector())) {
+                nodes.add(current.to);
+            }
+            Coordinate next = next(current);
+            String symbol = nextSymbol(map, next);
+            current = new Path(current.to, next, symbol);
+        }
+        return nodes;
     }
 
     private String nextSymbol(String[][] map, Coordinate coordinate) {

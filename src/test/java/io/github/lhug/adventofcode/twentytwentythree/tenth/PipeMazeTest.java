@@ -51,4 +51,23 @@ class PipeMazeTest {
 
         assertThat(result).isEqualTo(8);
     }
+
+    @Test
+    void finds_points_in_loop() {
+        String input = """
+                ...........
+                .S-------7.
+                .|F-----7|.
+                .||.....||.
+                .||.....||.
+                .|L-7.F-J|.
+                .|..|.|..|.
+                .L--J.L--J.
+                ...........
+                """;
+
+        long result = sut.pointsInArea(input);
+
+        assertThat(result).isEqualTo(4L);
+    }
 }
