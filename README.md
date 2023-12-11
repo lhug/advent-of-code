@@ -5,7 +5,12 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
-## 2023, Day 20, phase two
+## 2023, Day 11, phase one
+
+The biggest problem I had was the expansion of the columns.
+The rest was relatively simple. Here's hoping that part 2 will be as simple.
+
+## 2023, Day 10, phase two
 
 Again, reddit was my savior here. I am not that versed in matters of geometrics.
 I have never before heard of Picks Theorem, or the Shoelace formula. Luckily, this

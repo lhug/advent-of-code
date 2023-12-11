@@ -2,6 +2,7 @@ package io.github.lhug.adventofcode.twentytwentythree;
 
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentythree.eigth.HauntedWasteland;
+import io.github.lhug.adventofcode.twentytwentythree.eleventh.CosmicExpansion;
 import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
@@ -28,6 +29,7 @@ public class Days {
         days.dayEight();
         days.dayNine();
         days.dayTen();
+        days.dayEleven();
     }
 
     public void dayOne() {
@@ -111,5 +113,13 @@ public class Days {
         System.out.println("Results for day 10:");
         System.out.println("Farthest loop step: " + game.farthest(input));
         System.out.println("Points on grid: " + game.pointsInArea(input));
+    }
+
+    public void dayEleven() {
+        var input = reader.day(11);
+        var game = new CosmicExpansion(input);
+        System.out.println("Results for day 11:");
+        System.out.println("Shortest distance between each pair: " + game.findPathsWithExpansion(2));
+        System.out.println("Shortest distance between each old pair: " + game.findPathsWithExpansion(1000000));
     }
 }
