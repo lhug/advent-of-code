@@ -90,6 +90,15 @@ public class HotSprings {
         }
     }
 
+    /**
+     * Repeats a passed int[] multiple times.
+     * <p></p>
+     * Passing an array {@code [1, 2, 3]} and the number 3 will yield a new array {@code [1, 2, 3, 1, 2, 3, 1, 2, 3]}.
+     *
+     * @param arr the array to repeat
+     * @param times the number of times the initial array should be repeated
+     * @return the new array
+     */
     public static int[] repeat(int[] arr, int times) {
         int newLength = arr.length * times;
         int[] dup = Arrays.copyOf(arr, newLength);
@@ -99,6 +108,41 @@ public class HotSprings {
         return dup;
     }
 
+    /**
+     * Counts possible valid arrangements of broken gear groups.
+     * <p></p>
+     * More specifically, this recursively checks each map position for its character.
+     * The passed {@code mapPosition} corresponds to the character index of the passed map, the
+     * {@code groupIndex} refers to the current index of the passed amounts, and the {@code currentGroupSize} refers to
+     * the currently encountered number of "broken" gears.
+     * <p></p>
+     * Each examination is cached in the passed {@code blockMap} meaning that the results of each examination will be returned immediately.
+     * <p></p>
+     * If the end of the passed map is reached a final check is performed, if:
+     * <ul>
+     *     <li>all groups have been examined, and the current group size is zero</li>
+     *     <li>all groups have been examined, and the current group size is equal to the size of the last group</li>
+     * </ul>
+     * then a valid configuration is found, and 1 is returned.
+     * Else, the found configuration is invalid and 0 is returned.
+     * <p></p>
+     * Each character is being examined by itself.
+     * If the current character is either {@code ?} or {@code .}, and the current group size is zero, the next character is examined.
+     * If the current group is not the last group and the current group size matches the group size defined at the current group index,
+     * the next character is examined and the group index is also increased, meaning the examination now considers the next group size.
+     * The results of these examinations are added to the current total.
+     * Then, if the current character is either {@code ?} or {@code #}, the next character is being examined and the current group size is increased by one.
+     * The results of this examination will also be added to the total.
+     * Finally, the aggregated total is returned.
+     *
+     * @param blockMap a map to cache the results
+     * @param map the string containing the input to be examined
+     * @param amounts the array of group sizes as defined in the puzzle input
+     * @param mapPosition the current position on the index string
+     * @param groupIndex the current index of the group amounts
+     * @param currentGroupSize the amount of "broken" gears to consider for the current group
+     * @return the total number of valid configurations.
+     */
     public long countArrangements(
             HashMap<Tuple<Integer, Integer, Integer>, Long> blockMap,
             String map,
