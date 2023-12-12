@@ -12,6 +12,7 @@ import io.github.lhug.adventofcode.twentytwentythree.seventh.CamelCards;
 import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
 import io.github.lhug.adventofcode.twentytwentythree.tenth.PipeMaze;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
+import io.github.lhug.adventofcode.twentytwentythree.twelfth.HotSprings;
 
 public class Days {
 
@@ -30,6 +31,7 @@ public class Days {
         days.dayNine();
         days.dayTen();
         days.dayEleven();
+        days.dayTwelve();
     }
 
     public void dayOne() {
@@ -121,5 +123,13 @@ public class Days {
         System.out.println("Results for day 11:");
         System.out.println("Shortest distance between each pair: " + game.findPathsWithExpansion(2));
         System.out.println("Shortest distance between each old pair: " + game.findPathsWithExpansion(1000000));
+    }
+
+    public void dayTwelve() {
+        var input = reader.day(12);
+        var game = new HotSprings(input);
+        System.out.println("Results for day 12:");
+        System.out.println("Sum of all broken gear arrangements: " + game.sumMatches());
+        System.out.println("Sum of all unfolded gear arrangements: " + game.sumUnfolded());
     }
 }

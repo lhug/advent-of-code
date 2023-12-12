@@ -5,6 +5,20 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 12
+
+I had zero idea how to implement this. I actually struggled to do this manually. I then found a solution
+and spent a lot of time trying to understand how it works.
+I will add more documentation (for myself at least) to show what it does and then try to understand it.
+
+I linked the used solution instead of mine today, because this was completely stolen.
+
+## 2023, Day 11, phase two
+
+I knew it! Base idea of being able to extend further than just twice was exactly what I needed.
+Sadly, the size was so extreme, that the initial approach did not work.
+So I had to rework anyway :)
+
 ## 2023, Day 11, phase one
 
 The biggest problem I had was the expansion of the columns.
