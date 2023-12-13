@@ -12,6 +12,7 @@ import io.github.lhug.adventofcode.twentytwentythree.seventh.CamelCards;
 import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
 import io.github.lhug.adventofcode.twentytwentythree.tenth.PipeMaze;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
+import io.github.lhug.adventofcode.twentytwentythree.thirteenth.PointOfIncidence;
 import io.github.lhug.adventofcode.twentytwentythree.twelfth.HotSprings;
 
 public class Days {
@@ -32,6 +33,7 @@ public class Days {
         days.dayTen();
         days.dayEleven();
         days.dayTwelve();
+        days.dayThirteen();
     }
 
     public void dayOne() {
@@ -131,5 +133,13 @@ public class Days {
         System.out.println("Results for day 12:");
         System.out.println("Sum of all broken gear arrangements: " + game.sumMatches());
         System.out.println("Sum of all unfolded gear arrangements: " + game.sumUnfolded());
+    }
+
+    public void dayThirteen() {
+        var input = reader.day(13);
+        var game = new PointOfIncidence(input);
+        System.out.println("Results for day 13:");
+        System.out.println("Sum of lines: " + game.calculateMirrorLines());
+        System.out.println("Sum of smudged lines: " + game.calculateSmudgedLines());
     }
 }

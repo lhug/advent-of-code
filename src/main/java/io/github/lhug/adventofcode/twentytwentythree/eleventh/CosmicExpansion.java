@@ -1,5 +1,7 @@
 package io.github.lhug.adventofcode.twentytwentythree.eleventh;
 
+import io.github.lhug.adventofcode.common.StringHelper;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,35 +16,9 @@ public class CosmicExpansion {
 
     public String expand() {
         String expandedRows = internalExpand(base, "V");
-        var transposed = transpose(expandedRows);
+        var transposed = StringHelper.transpose(expandedRows);
         var fullyExpanded = internalExpand(transposed, ">");
-        return transpose(fullyExpanded);
-    }
-
-    private String transpose(String offer) {
-        var matrix = toMatrix(offer);
-        int rows = matrix.length;
-        int columns = matrix[0].length;
-        char[][] result = new char[columns][rows];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                result[j][i] = matrix[i][j];
-            }
-        }
-        return toString(result);
-    }
-
-    private char[][] toMatrix(String in) {
-        return in.lines()
-                .map(String::strip)
-                .map(String::toCharArray)
-                .toArray(char[][]::new);
-    }
-
-    private String toString(char[][] matrix) {
-        return Arrays.stream(matrix)
-                .map(String::new)
-                .collect(Collectors.joining("\n"));
+        return StringHelper.transpose(fullyExpanded);
     }
 
     private String internalExpand(String in, String v) {
@@ -60,7 +36,7 @@ public class CosmicExpansion {
 
     public List<Coordinate> findCoordinates(String input, int expand) {
         List<Coordinate> result = new ArrayList<>();
-        var matrix = toMatrix(input);
+        var matrix = StringHelper.toMatrix(input);
         int multY = 0;
         for (int i = 0; i < matrix.length; i++) {
             boolean added = false;

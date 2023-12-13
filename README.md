@@ -5,6 +5,21 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 13
+
+This wqs a fun exercise. Sadly, I had to do this to the side, so there was no time to
+actually split the uploads.
+
+I had a lot of trouble thinking about the second phase, because the changes did not remove
+the original mirror lines, meaning the test input would have had a smudged *and* a clear
+mirror line.
+
+However, the task explicitly called for checking the one smudged result, and not all possible
+results, making the second task much simpler than I thought.
+
+The "errorCount" variable was added to check for the smudge.
+Before this, the equality check was just `Objects.equals`.
+
 ## 2023, Day 12
 
 I had zero idea how to implement this. I actually struggled to do this manually. I then found a solution
