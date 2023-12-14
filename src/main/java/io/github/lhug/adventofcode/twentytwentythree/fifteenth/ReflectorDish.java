@@ -2,8 +2,7 @@ package io.github.lhug.adventofcode.twentytwentythree.fifteenth;
 
 import io.github.lhug.adventofcode.common.StringHelper;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.LongStream;
 
 public class ReflectorDish {
@@ -12,8 +11,30 @@ public class ReflectorDish {
     public ReflectorDish(String input) {
         this.data = input;
     }
-    
-    public record Coordinate(int y, int x) {}
+
+    public long loadAfterCycling() {
+        var matrix = StringHelper.toMatrix(data);
+        Map<String, Integer> results = new HashMap<>();
+        for (int i = 0; i < 1_000_000_000; i++) {
+            tiltCycle(matrix);
+            var config = StringHelper.toString(matrix);
+            if(results.containsKey(config)) {
+                var delta = i - results.get(config);
+                i += delta * ((1_000_000_000 - i) / delta);
+            }
+            results.put(config, i);
+        }
+        return calculateLoad(matrix);
+    }
+
+    private static void tiltCycle(char[][] matrix) {
+        tiltNorth(matrix);
+        tiltWest(matrix);
+        tiltSouth(matrix);
+        tiltEast(matrix);
+    }
+
+    private record Coordinate(int y, int x) {}
     
     public long tilt() {
         var matrix = StringHelper.toMatrix(data);
@@ -47,6 +68,63 @@ public class ReflectorDish {
                         in[y][x] = '.';
                     } else {
                         openPosition++;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void tiltSouth(char[][] in) {
+        for (int x = 0; x < in[0].length; x++) {
+            int openPosition = in.length - 1;
+            for (int y = in.length - 1; y >= 0; y--) {
+                char current = in[y][x];
+                if(current == '#') {
+                    openPosition = y - 1;
+                } else if (current == 'O') {
+                    if(y != openPosition) {
+                        in[openPosition--][x] = 'O';
+                        in[y][x] = '.';
+                    } else {
+                        openPosition--;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void tiltWest(char[][] in) {
+        for (int y = 0; y < in.length; y++) {
+            int openPosition = 0;
+            for (int x = 0; x < in[0].length; x++) {
+                char current = in[y][x];
+                if(current == '#') {
+                    openPosition = x + 1;
+                } else if (current == 'O') {
+                    if(x != openPosition) {
+                        in[y][openPosition++] = 'O';
+                        in[y][x] = '.';
+                    } else {
+                        openPosition++;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void tiltEast(char[][] in) {
+        for (int y = 0; y < in.length; y++) {
+            int openPosition = in[0].length - 1;
+            for (int x = in[0].length - 1; x >= 0; x--) {
+                char current = in[y][x];
+                if(current == '#') {
+                    openPosition = x - 1;
+                } else if (current == 'O') {
+                    if(x != openPosition) {
+                        in[y][openPosition--] = 'O';
+                        in[y][x] = '.';
+                    } else {
+                        openPosition--;
                     }
                 }
             }

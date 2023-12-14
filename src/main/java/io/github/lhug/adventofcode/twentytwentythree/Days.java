@@ -16,6 +16,8 @@ import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
 import io.github.lhug.adventofcode.twentytwentythree.thirteenth.PointOfIncidence;
 import io.github.lhug.adventofcode.twentytwentythree.twelfth.HotSprings;
 
+import java.sql.SQLOutput;
+
 public class Days {
 
     private final ResourceReader reader = ResourceReader.year(2023);
@@ -151,5 +153,6 @@ public class Days {
 
         System.out.println("Results for day 14:");
         System.out.println("Load on north side: " + game.tilt());
+        System.out.println("Load on north after some cycles: " + game.loadAfterCycling());
     }
 }

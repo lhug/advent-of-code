@@ -5,6 +5,28 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 15, phase two
+
+An exercise in frustration. Again, I do not really understand why my initial approach did not work.
+The initial idea was:
+- twist matrix, until first repetition
+- reduce loop amount by repetition index (i.e. reduce by n steps)
+- modulo the shit out of the remaining iterations
+- check the number at the appropriate index of the already recorded loop
+- profit
+
+So, for example, given `1234534534534534` as the actual loop (each number representing a matrix configuration),
+the iteration would have found the loop after 6 steps, having cached 5 entries.
+This would mean: the loop size is 3, the loops start at step 3.
+Meaning further, there are 14 looping steps (16 - 2), the loop length is 3, modulo-ing 14 by 3 gives
+Having already recorded `12345` in the initial list, the start index would be 2, so returning the value at
+index `repetitionIndex + moduloResult - 1` SHOULD have given the correct "final" step of the number line.
+This was, however, not the case.
+
+Doing the same thing in a `for`-loop, and just skipping roughly `(1_000_000_000 - foundIndex) / loopSize)` entries,
+and then manually computing the final steps, for SOME reason, leads to the correct result.
+At least I am done wth this, now.
+
 ## 2023, Day 14, phase one
 
 Interesting problem. My initial attempt at solving, which was trying to be smart
