@@ -3,6 +3,7 @@ package io.github.lhug.adventofcode.twentytwentythree;
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentythree.eigth.HauntedWasteland;
 import io.github.lhug.adventofcode.twentytwentythree.eleventh.CosmicExpansion;
+import io.github.lhug.adventofcode.twentytwentythree.fifteenth.ReflectorDish;
 import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
 import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
@@ -34,6 +35,7 @@ public class Days {
         days.dayEleven();
         days.dayTwelve();
         days.dayThirteen();
+        days.dayFourteen();
     }
 
     public void dayOne() {
@@ -141,5 +143,13 @@ public class Days {
         System.out.println("Results for day 13:");
         System.out.println("Sum of lines: " + game.calculateMirrorLines());
         System.out.println("Sum of smudged lines: " + game.calculateSmudgedLines());
+    }
+
+    public void dayFourteen() {
+        var input = reader.day(14);
+        var game = new ReflectorDish(input);
+
+        System.out.println("Results for day 14:");
+        System.out.println("Load on north side: " + game.tilt());
     }
 }

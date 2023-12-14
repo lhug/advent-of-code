@@ -5,6 +5,13 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 14, phase one
+
+Interesting problem. My initial attempt at solving, which was trying to be smart
+by just calculating instead of actually moving, was unsuccessful.
+So I resorted to do an in-place replace during a single iteration, which worked out
+fine.
+
 ## 2023, Day 13
 
 This wqs a fun exercise. Sadly, I had to do this to the side, so there was no time to
