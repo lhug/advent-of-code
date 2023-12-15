@@ -5,7 +5,7 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
-## 2023, Day 15, phase two
+## 2023, Day 14, phase two
 
 An exercise in frustration. Again, I do not really understand why my initial approach did not work.
 The initial idea was:

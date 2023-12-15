@@ -1,4 +1,4 @@
-package io.github.lhug.adventofcode.twentytwentythree.fifteenth;
+package io.github.lhug.adventofcode.twentytwentythree.fourteenth;
 
 import io.github.lhug.adventofcode.common.StringHelper;
 import org.junit.jupiter.api.Test;
