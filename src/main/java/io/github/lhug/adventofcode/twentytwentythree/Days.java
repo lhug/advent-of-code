@@ -162,5 +162,6 @@ public class Days {
 
         System.out.println("Results for day 15:");
         System.out.println("Sum of simple hashes: " + game.hashSumFor(input));
+        System.out.println("Focusing power: " + game.focusingPower(input));
     }
 }

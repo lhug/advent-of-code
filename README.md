@@ -5,6 +5,12 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 15, phase two
+
+En exercise in reading. Apart from that, the solution is relatively simple.
+The wording was a little strange and confused me, but after two failed attempts,
+one of them being a typo, the solution was done.
+
 ## 2023, Day 15, phase one
 
 This was rather simple. Easy hashing, good situation to use reduce.

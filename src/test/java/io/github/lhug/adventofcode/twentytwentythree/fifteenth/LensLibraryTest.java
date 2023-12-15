@@ -29,4 +29,11 @@ class LensLibraryTest {
 
         assertThat(result).isEqualTo(1320L);
     }
+
+    @Test
+    void computes_focusing_power() {
+        long result = sut.focusingPower(input);
+
+        assertThat(result).isEqualTo(145L);
+    }
 }
