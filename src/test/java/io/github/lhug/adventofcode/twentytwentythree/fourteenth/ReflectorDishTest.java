@@ -1,6 +1,6 @@
 package io.github.lhug.adventofcode.twentytwentythree.fourteenth;
 
-import io.github.lhug.adventofcode.common.StringHelper;
+import io.github.lhug.adventofcode.common.Transformer;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -77,37 +77,37 @@ class ReflectorDishTest {
 
     @Test
     void tilts_north_correctly() {
-        var in = StringHelper.toMatrix(input);
+        var in = Transformer.toMatrix(input);
         ReflectorDish.tiltNorth(in);
 
-        assertThat(StringHelper.toString(in))
+        assertThat(Transformer.toString(in))
                 .isEqualTo(north_tilt);
     }
 
     @Test
     void tilts_south_correctly() {
-        var in = StringHelper.toMatrix(input);
+        var in = Transformer.toMatrix(input);
         ReflectorDish.tiltSouth(in);
 
-        assertThat(StringHelper.toString(in))
+        assertThat(Transformer.toString(in))
                 .isEqualTo(south_tilt);
     }
 
     @Test
     void tilts_west_correctly() {
-        var in = StringHelper.toMatrix(input);
+        var in = Transformer.toMatrix(input);
         ReflectorDish.tiltWest(in);
 
-        assertThat(StringHelper.toString(in))
+        assertThat(Transformer.toString(in))
                 .isEqualTo(west_tilt);
     }
 
     @Test
     void tilts_east_correctly() {
-        var in = StringHelper.toMatrix(input);
+        var in = Transformer.toMatrix(input);
         ReflectorDish.tiltEast(in);
 
-        assertThat(StringHelper.toString(in))
+        assertThat(Transformer.toString(in))
                 .isEqualTo(east_tilt);
     }
 

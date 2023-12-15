@@ -1,11 +1,9 @@
 package io.github.lhug.adventofcode.twentytwentythree.eleventh;
 
-import io.github.lhug.adventofcode.common.StringHelper;
+import io.github.lhug.adventofcode.common.Transformer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CosmicExpansion {
 
@@ -16,9 +14,9 @@ public class CosmicExpansion {
 
     public String expand() {
         String expandedRows = internalExpand(base, "V");
-        var transposed = StringHelper.transpose(expandedRows);
+        var transposed = Transformer.matrixTranspose(expandedRows);
         var fullyExpanded = internalExpand(transposed, ">");
-        return StringHelper.transpose(fullyExpanded);
+        return Transformer.matrixTranspose(fullyExpanded);
     }
 
     private String internalExpand(String in, String v) {
@@ -36,7 +34,7 @@ public class CosmicExpansion {
 
     public List<Coordinate> findCoordinates(String input, int expand) {
         List<Coordinate> result = new ArrayList<>();
-        var matrix = StringHelper.toMatrix(input);
+        var matrix = Transformer.toMatrix(input);
         int multY = 0;
         for (int i = 0; i < matrix.length; i++) {
             boolean added = false;

@@ -1,6 +1,6 @@
 package io.github.lhug.adventofcode.twentytwentythree.thirteenth;
 
-import io.github.lhug.adventofcode.common.StringHelper;
+import io.github.lhug.adventofcode.common.Transformer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -62,7 +62,7 @@ public class PointOfIncidence {
 
     private MirrorMaze parseSet(String input) {
         var lines = input.lines().toArray(String[]::new);
-        var columns = StringHelper.transpose(input).lines().toArray(String[]::new);
+        var columns = Transformer.matrixTranspose(input).lines().toArray(String[]::new);
         return new MirrorMaze(lines, columns);
     }
 

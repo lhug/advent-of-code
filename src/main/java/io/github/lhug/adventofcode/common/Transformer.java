@@ -3,18 +3,23 @@ package io.github.lhug.adventofcode.common;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class StringHelper {
-    public static String transpose(String offer) {
+public class Transformer {
+    public static String matrixTranspose(String offer) {
         var matrix = toMatrix(offer);
-        int rows = matrix.length;
-        int columns = matrix[0].length;
-        char[][] result = new char[columns][rows];
+        var transposed = transpose(matrix);
+        return toString(transposed);
+    }
+
+    public static char[][] transpose(char[][] in) {
+        int rows = in.length;
+        int columns = in[0].length;
+        var result = new char[columns][rows];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                result[j][i] = matrix[i][j];
+                result[j][i] = in[i][j];
             }
         }
-        return toString(result);
+        return result;
     }
 
     public static char[][] toMatrix(String in) {

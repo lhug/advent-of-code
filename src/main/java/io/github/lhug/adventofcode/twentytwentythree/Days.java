@@ -3,6 +3,7 @@ package io.github.lhug.adventofcode.twentytwentythree;
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentythree.eigth.HauntedWasteland;
 import io.github.lhug.adventofcode.twentytwentythree.eleventh.CosmicExpansion;
+import io.github.lhug.adventofcode.twentytwentythree.fifteenth.LensLibrary;
 import io.github.lhug.adventofcode.twentytwentythree.fourteenth.ReflectorDish;
 import io.github.lhug.adventofcode.twentytwentythree.fifth.Fertilizer;
 import io.github.lhug.adventofcode.twentytwentythree.first.TrebuchetCalibration;
@@ -36,6 +37,7 @@ public class Days {
         days.dayTwelve();
         days.dayThirteen();
         days.dayFourteen();
+        days.dayFifteen();
     }
 
     public void dayOne() {
@@ -152,5 +154,13 @@ public class Days {
         System.out.println("Results for day 14:");
         System.out.println("Load on north side: " + game.tilt());
         System.out.println("Load on north after some cycles: " + game.loadAfterCycling());
+    }
+
+    public void dayFifteen() {
+        var input = reader.day(15);
+        var game = new LensLibrary();
+
+        System.out.println("Results for day 15:");
+        System.out.println("Sum of simple hashes: " + game.hashSumFor(input));
     }
 }

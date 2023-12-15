@@ -1,6 +1,6 @@
 package io.github.lhug.adventofcode.twentytwentythree.fourteenth;
 
-import io.github.lhug.adventofcode.common.StringHelper;
+import io.github.lhug.adventofcode.common.Transformer;
 
 import java.util.*;
 import java.util.stream.LongStream;
@@ -13,11 +13,11 @@ public class ReflectorDish {
     }
 
     public long loadAfterCycling() {
-        var matrix = StringHelper.toMatrix(data);
+        var matrix = Transformer.toMatrix(data);
         Map<String, Integer> results = new HashMap<>();
         for (int i = 0; i < 1_000_000_000; i++) {
             tiltCycle(matrix);
-            var config = StringHelper.toString(matrix);
+            var config = Transformer.toString(matrix);
             if(results.containsKey(config)) {
                 var delta = i - results.get(config);
                 i += delta * ((1_000_000_000 - i) / delta);
@@ -37,7 +37,7 @@ public class ReflectorDish {
     private record Coordinate(int y, int x) {}
     
     public long tilt() {
-        var matrix = StringHelper.toMatrix(data);
+        var matrix = Transformer.toMatrix(data);
         tiltNorth(matrix);
         return calculateLoad(matrix);
     }
@@ -138,7 +138,7 @@ public class ReflectorDish {
      */
     @SuppressWarnings("unused")
     private long calculateLoad() {
-        var matrix = StringHelper.toMatrix(data);
+        var matrix = Transformer.toMatrix(data);
         Map<Coordinate, Long> values = new LinkedHashMap<>();
         long count = 0L;
         Coordinate currentCoordinate = null;
