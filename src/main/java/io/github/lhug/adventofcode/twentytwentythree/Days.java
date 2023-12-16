@@ -173,5 +173,6 @@ public class Days {
 
         System.out.println("Results for day 16:");
         System.out.println("Initial energized: " + game.energized());
+        System.out.println("Ideally energized: " + game.idealEnergized());
     }
 }

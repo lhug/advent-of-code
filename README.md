@@ -5,6 +5,13 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 16, phase two
+
+This was actually much simpler than before. It was rather obvious that the initial point would change,
+however checking all configurations was not anticipated.
+I feared this would run vor at least a minute, as the input is not that small, but apparently,
+using arrays is relatively fast in Java.
+
 ## 2023, Day 16, phase one
 
 After having a long, LONG, thought about how to do this, I settled on recursion.

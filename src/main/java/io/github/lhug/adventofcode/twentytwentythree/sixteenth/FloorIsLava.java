@@ -16,6 +16,25 @@ public class FloorIsLava {
         return findPathFrom(new Light(-1, 0, Direction.WEST));
     }
 
+    public long idealEnergized() {
+        int width = grid[0].length;
+        int height = grid.length;
+        long result = 0L;
+        for (int x = 0; x < width; x++) {
+            var source = new Light(x, -1, Direction.SOUTH);
+            result = Math.max(result, findPathFrom(source));
+            source = new Light(x, height, Direction.NORTH);
+            result = Math.max(result, findPathFrom(source));
+        }
+        for (int y = 0; y < height; y++) {
+            var source = new Light(-1, y, Direction.WEST);
+            result = Math.max(result, findPathFrom(source));
+            source = new Light(width, y, Direction.EAST);
+            result = Math.max(result, findPathFrom(source));
+        }
+        return result;
+    }
+
     record Beam(Set<Direction> directions) {
         Beam() {
             this(new HashSet<>());
@@ -30,7 +49,7 @@ public class FloorIsLava {
         }
     }
 
-    record Light(int x, int y, Direction direction) {
+    public record Light(int x, int y, Direction direction) {
         List<Light> reflect(char reflector) {
             return switch (reflector) {
                 case '/' -> switch (direction) {
@@ -75,7 +94,7 @@ public class FloorIsLava {
         }
     }
 
-    private long findPathFrom(Light initial) {
+    public long findPathFrom(Light initial) {
         Beam[][] beams = initBeams();
         moveAlong(initial, beams);
         long result = 0L;
