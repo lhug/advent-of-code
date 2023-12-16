@@ -5,6 +5,17 @@ Plans for this year, from day three:
 
 Check in each "phase" separately, so I can review my own thought processes.
 
+## 2023, Day 16, phase one
+
+After having a long, LONG, thought about how to do this, I settled on recursion.
+This is not my forté and I had to retry a lot. Also, I do not really know how to test recursion,
+so there are basically zero tests here.
+
+However, I did learn something profound, that is so obvious I never thought about it.
+Using java Streams in recursive calls is VERY dangerous, as the initial call only returns
+when the entire recursion stack is processed. This led to multiple StackOverflow errors on my end.
+Interesting to know.
+
 ## 2023, Day 15, phase two
 
 En exercise in reading. Apart from that, the solution is relatively simple.

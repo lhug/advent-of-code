@@ -11,6 +11,7 @@ import io.github.lhug.adventofcode.twentytwentythree.fourth.Scratchcards;
 import io.github.lhug.adventofcode.twentytwentythree.ninth.MirageMaintenance;
 import io.github.lhug.adventofcode.twentytwentythree.second.ColoredBoxesGame;
 import io.github.lhug.adventofcode.twentytwentythree.seventh.CamelCards;
+import io.github.lhug.adventofcode.twentytwentythree.sixteenth.FloorIsLava;
 import io.github.lhug.adventofcode.twentytwentythree.sixth.BoatRace;
 import io.github.lhug.adventofcode.twentytwentythree.tenth.PipeMaze;
 import io.github.lhug.adventofcode.twentytwentythree.third.PartCalculator;
@@ -38,6 +39,7 @@ public class Days {
         days.dayThirteen();
         days.dayFourteen();
         days.dayFifteen();
+        days.daySixteen();
     }
 
     public void dayOne() {
@@ -163,5 +165,13 @@ public class Days {
         System.out.println("Results for day 15:");
         System.out.println("Sum of simple hashes: " + game.hashSumFor(input));
         System.out.println("Focusing power: " + game.focusingPower(input));
+    }
+
+    public void daySixteen() {
+        var input = reader.day(16);
+        var game = new FloorIsLava(input);
+
+        System.out.println("Results for day 16:");
+        System.out.println("Initial energized: " + game.energized());
     }
 }
