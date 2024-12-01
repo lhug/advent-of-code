@@ -1,9 +1,17 @@
 # Advent of Code
 
 This contains my implementations for advent of code.
-Plans for this year, from day three:
 
-Check in each "phase" separately, so I can review my own thought processes.
+## 2024, Day 1, phase two
+
+Luckily, I did not do too much magic (though still overcomplicated things) with the parsing.
+Lists were quite useful. I am very certain I could have done better, but this was after a looong day at an amusement
+park with 2 kids, so I guess I may be forgiven for sloppy craftsmanship here :)
+
+## 2024, Day 1, phase one
+
+This was interesting. The most difficult part here for me was to actually parse the lists.
+From that point forward, it was relatively straightforward - sort, subtract, ensure positive value and add.
 
 ## 2023, Day 16, phase two
 
