@@ -2,6 +2,11 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 2, phase one
+
+Reading is a very useful skill. I wasted a lot of time with the comparison, while completely missing the extra requirements of "same difference" and "fail on zero".
+Let's hope phase two works better for me :)
+
 ## 2024, Day 1, phase two
 
 Luckily, I did not do too much magic (though still overcomplicated things) with the parsing.
