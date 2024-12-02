@@ -2,6 +2,15 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 2, phase two
+
+Damn that took some time. Last years' overflow made me avoid brute forcing the solution. However, all patterns I found
+were insufficient, I always came up short.
+
+So I rethought the entire thing. Checking for correctness was WAY too complicated, so I reduced that a lot,
+and then just... well... brute forced the solution.
+Do not feel good about this, but at least I got the solution right :)
+
 ## 2024, Day 2, phase one
 
 Reading is a very useful skill. I wasted a lot of time with the comparison, while completely missing the extra requirements of "same difference" and "fail on zero".

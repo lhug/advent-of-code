@@ -28,5 +28,7 @@ public class Days {
 		var parameters = new ReactorParameters(in);
 		var day2 = parameters.safeSequences();
 		System.out.println("Safe sequences: " + day2);
+		var day2_2 = parameters.bufferedSafeSequences();
+		System.out.println("Buffered safe sequences: " + day2_2);
 	}
 }

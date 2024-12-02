@@ -1,6 +1,5 @@
 package io.github.lhug.adventofcode.twentytwentyfour.second;
 
-import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -149,5 +148,30 @@ class ReactorParametersTest {
         var result = sut.safeSequences();
 
         assertThat(result).isEqualTo(2L);
+    }
+
+    @Test
+    void marks_sequence_as_safe_when_sequence_contains_single_error() {
+        var data = new int[]{1, 2, 3, 3, 4};
+
+        var result = sut.isSafeWithBuffer(data);
+
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void marks_sequence_as_unsafe_when_sequence_contains_multiple_errors() {
+        var data = new int[]{1, 2, 3, 3, 4, 3, 5};
+
+        var result = sut.isSafeWithBuffer(data);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void counts_safe_sequences_with_buffer() {
+        var result = sut.bufferedSafeSequences();
+
+        assertThat(result).isEqualTo(4);
     }
 }
