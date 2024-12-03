@@ -2,6 +2,12 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 3, phase one and two
+
+Head swimming, am sick today. However, simple enough - regex match, filter and sum.
+Phase two had me stumped because I spent an hour (!) realizing that as soon as I add handling for do and don't,
+I need to remove those from phase one.
+
 ## 2024, Day 2, phase two
 
 Damn that took some time. Last years' overflow made me avoid brute forcing the solution. However, all patterns I found

@@ -3,6 +3,7 @@ package io.github.lhug.adventofcode.twentytwentyfour;
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentyfour.first.DistanceCalculator;
 import io.github.lhug.adventofcode.twentytwentyfour.second.ReactorParameters;
+import io.github.lhug.adventofcode.twentytwentyfour.third.MullItOver;
 
 public class Days {
 
@@ -12,6 +13,7 @@ public class Days {
 		Days days = new Days();
 		days.dayOne();
 		days.dayTwo();
+		days.dayThree();
 	}
 
 	private void dayOne() {
@@ -30,5 +32,14 @@ public class Days {
 		System.out.println("Safe sequences: " + day2);
 		var day2_2 = parameters.bufferedSafeSequences();
 		System.out.println("Buffered safe sequences: " + day2_2);
+	}
+
+	private void dayThree() {
+		var in = reader.day(3);
+		var mull = new MullItOver();
+		var day3_1 = mull.phaseOne(in);
+		System.out.println("Multiplied values: " + day3_1);
+		var day3_2 = mull.phaseTwo(in);
+		System.out.println("Filtered values: " + day3_2);
 	}
 }
