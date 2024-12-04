@@ -2,6 +2,7 @@ package io.github.lhug.adventofcode.twentytwentyfour;
 
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentyfour.first.DistanceCalculator;
+import io.github.lhug.adventofcode.twentytwentyfour.fourth.WordSearch;
 import io.github.lhug.adventofcode.twentytwentyfour.second.ReactorParameters;
 import io.github.lhug.adventofcode.twentytwentyfour.third.MullItOver;
 
@@ -14,6 +15,7 @@ public class Days {
 		days.dayOne();
 		days.dayTwo();
 		days.dayThree();
+		days.dayFour();
 	}
 
 	private void dayOne() {
@@ -41,5 +43,12 @@ public class Days {
 		System.out.println("Multiplied values: " + day3_1);
 		var day3_2 = mull.phaseTwo(in);
 		System.out.println("Filtered values: " + day3_2);
+	}
+
+	private void dayFour() {
+		var in = reader.day(4);
+		var ws = new WordSearch(in);
+		var day4_1 = ws.countXmas();
+		System.out.println("XMAS count: " + day4_1);
 	}
 }

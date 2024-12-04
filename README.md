@@ -2,6 +2,12 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 4, phase one
+
+I hate grids. But, I managed. Most likely overcomplicated things a lot.
+But then again, it does work.
+However, having already seen the phase two assignment, I think I might just as well stop here :)
+
 ## 2024, Day 3, phase one and two
 
 Head swimming, am sick today. However, simple enough - regex match, filter and sum.
