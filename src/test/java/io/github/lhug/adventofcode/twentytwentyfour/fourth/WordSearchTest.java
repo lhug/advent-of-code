@@ -12,7 +12,20 @@ class WordSearchTest {
 .A..A.
 XMAS.S
 .X....
-            """;
+""";
+
+    private static final String X_MAS_INPUT = """
+.M.S......
+..A..MSMS.
+.M.S.MAA..
+..A.ASMSM.
+.M.S.M....
+..........
+S.S.S.S.S.
+.A.A.A.A..
+M.M.M.M.M.
+..........
+""";
 
     private static final String LARGE_INPUT = """
 MMMSXXMASM
@@ -52,5 +65,14 @@ MXMXAXMASX
     @Test
     void counts_xmas_occurrences() {
         assertThat(sut.countXmas()).isEqualTo(4);
+    }
+
+    @Test
+    void counts_crossed_mas_occurrences() {
+        sut = new WordSearch(X_MAS_INPUT);
+
+        var result = sut.countX_mas();
+
+        assertThat(result).isEqualTo(9);
     }
 }

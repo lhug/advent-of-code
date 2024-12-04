@@ -2,6 +2,15 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 4, phase two
+
+After much, MUCH overthinking on how to solve this, I finally got hung up on a wrong solution.
+Not only did I di the correct thing, which is finding the diagonal MASes, I did not read, but interpret the assignment.
+And as X-MAS is basically CROSS-MAS, I took the straight X-MAS as well.
+
+I spent roughly 30 Minutes figuring out what was wrong, until I finally re-read the instructions.
+This could have been so much easier ^^
+
 ## 2024, Day 4, phase one
 
 I hate grids. But, I managed. Most likely overcomplicated things a lot.

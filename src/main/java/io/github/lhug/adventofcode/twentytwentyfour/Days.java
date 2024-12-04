@@ -50,5 +50,7 @@ public class Days {
 		var ws = new WordSearch(in);
 		var day4_1 = ws.countXmas();
 		System.out.println("XMAS count: " + day4_1);
+		var day4_2 = ws.countX_mas();
+		System.out.println("X-MAS count: " + day4_2);
 	}
 }
