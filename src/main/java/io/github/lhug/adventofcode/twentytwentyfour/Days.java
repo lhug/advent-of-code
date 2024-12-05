@@ -11,7 +11,7 @@ public class Days {
 
 	private final ResourceReader reader = ResourceReader.year(2024);
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) {
 		Days days = new Days();
 		days.dayOne();
 		days.dayTwo();
@@ -61,5 +61,7 @@ public class Days {
 		var pq = new PrintQueue(in);
 		var day5_1 = pq.phaseOne();
 		System.out.println("Phase one: " + day5_1);
+		var day5_2 = pq.phaseTwo();
+		System.out.println("Phase two: " + day5_2);
 	}
 }

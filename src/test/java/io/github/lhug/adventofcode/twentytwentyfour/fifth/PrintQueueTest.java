@@ -112,7 +112,8 @@ class PrintQueueTest {
         return Stream.of(
             Arguments.of(new int[]{ 75, 47, 61, 53, 29 }, 61),
             Arguments.of(new int[]{ 97, 61, 53, 29, 13 }, 53),
-            Arguments.of(new int[]{ 75, 29, 13 }, 29)
+            Arguments.of(new int[]{ 75, 29, 13 }, 29),
+            Arguments.of(new int[0], 0)
         );
     }
 
@@ -121,5 +122,55 @@ class PrintQueueTest {
         var result = sut.phaseOne();
 
         assertThat(result).isEqualTo(143);
+    }
+
+    @Test
+    void finds_bad_rows() {
+        var result = sut.badRows();
+
+        assertThat(result).containsExactly(
+                new int[]{75,97,47,61,53},
+                new int[]{61,13,29},
+                new int[]{97,13,75,29,47}
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("phase2Input")
+    void sorts_array_following_rules(int[] in, int[] out) {
+        var rules = sut.rules;
+        /*rules = rules.stream()
+                .filter(r -> r.matches(in) != PrintRule.Result.NOT_APPLICABLE)
+                .toList();
+
+         */
+
+        var result = sut.khan(in, rules);
+
+        assertThat(result).isEqualTo(out);
+    }
+
+    @Test
+    void counts_middle_values_of_sorted_bad_rows() {
+        var result = sut.phaseTwo();
+
+        assertThat(result).isEqualTo(123L);
+    }
+
+    static Stream<Arguments> phase2Input() {
+        return Stream.of(
+                Arguments.of(
+                        new int[]{75,97,47,61,53},
+                        new int[]{97,75,47,61,53}
+                ),
+                Arguments.of(
+                        new int[]{61,13,29},
+                        new int[]{61,29,13}
+                ),
+                Arguments.of(
+                        new int[]{97,13,75,29,47},
+                        new int[]{97,75,47,29,13}
+                )
+        );
     }
 }

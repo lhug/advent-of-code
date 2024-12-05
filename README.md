@@ -2,6 +2,13 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 5, phase two
+
+I learned something about topographical sorting today.
+I admit, I had help from ChatGPT, as I was at a complete loss how to apply the rules.
+Learning about Khans algorithm was fun, and I do love this kind of stuff.
+I wonder if there is a better way to implement this algorithm than I did.
+
 ## 2024, Day 5, phase one
 
 Looks much more complicated than it is. I fell into the overengineering trap again, as one does, however this does
