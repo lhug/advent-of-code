@@ -2,6 +2,12 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 5, phase one
+
+Looks much more complicated than it is. I fell into the overengineering trap again, as one does, however this does
+appear to put me on good footing when it comes to phase two.
+Also, this was the first time the AI Plugin did not annoy the hell out of me. It almost was correct sometimes.
+
 ## 2024, Day 4, phase two
 
 After much, MUCH overthinking on how to solve this, I finally got hung up on a wrong solution.
