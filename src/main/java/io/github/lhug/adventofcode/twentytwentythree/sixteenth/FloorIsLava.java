@@ -13,7 +13,7 @@ public class FloorIsLava {
     }
 
     public long energized() {
-        return findPathFrom(new Light(-1, 0, Direction.WEST));
+        return findPathFrom(new Light(-1, 0, Direction.EAST));
     }
 
     public long idealEnergized() {
@@ -27,9 +27,9 @@ public class FloorIsLava {
             result = Math.max(result, findPathFrom(source));
         }
         for (int y = 0; y < height; y++) {
-            var source = new Light(-1, y, Direction.WEST);
+            var source = new Light(-1, y, Direction.EAST);
             result = Math.max(result, findPathFrom(source));
-            source = new Light(width, y, Direction.EAST);
+            source = new Light(width, y, Direction.WEST);
             result = Math.max(result, findPathFrom(source));
         }
         return result;
@@ -53,16 +53,16 @@ public class FloorIsLava {
         List<Light> reflect(char reflector) {
             return switch (reflector) {
                 case '/' -> switch (direction) {
-                    case NORTH -> reflectTo(Direction.WEST);
-                    case EAST -> reflectTo(Direction.SOUTH);
-                    case WEST -> reflectTo(Direction.NORTH);
-                    case SOUTH -> reflectTo(Direction.EAST);
-                };
-                case '\\' -> switch (direction) {
                     case NORTH -> reflectTo(Direction.EAST);
                     case EAST -> reflectTo(Direction.NORTH);
-                    case SOUTH -> reflectTo(Direction.WEST);
                     case WEST -> reflectTo(Direction.SOUTH);
+                    case SOUTH -> reflectTo(Direction.WEST);
+                };
+                case '\\' -> switch (direction) {
+                    case NORTH -> reflectTo(Direction.WEST);
+                    case EAST -> reflectTo(Direction.SOUTH);
+                    case SOUTH -> reflectTo(Direction.EAST);
+                    case WEST -> reflectTo(Direction.NORTH);
                 };
                 case '|' -> switch (direction) {
                     case EAST, WEST -> reflectTo(Direction.NORTH, Direction.SOUTH);

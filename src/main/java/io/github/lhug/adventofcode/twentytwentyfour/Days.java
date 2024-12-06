@@ -5,6 +5,7 @@ import io.github.lhug.adventofcode.twentytwentyfour.fifth.PrintQueue;
 import io.github.lhug.adventofcode.twentytwentyfour.first.DistanceCalculator;
 import io.github.lhug.adventofcode.twentytwentyfour.fourth.WordSearch;
 import io.github.lhug.adventofcode.twentytwentyfour.second.ReactorParameters;
+import io.github.lhug.adventofcode.twentytwentyfour.sixth.GuardGallivant;
 import io.github.lhug.adventofcode.twentytwentyfour.third.MullItOver;
 
 public class Days {
@@ -18,6 +19,7 @@ public class Days {
 		days.dayThree();
 		days.dayFour();
 		days.dayFive();
+		days.daySix();
 	}
 
 	private void dayOne() {
@@ -63,5 +65,12 @@ public class Days {
 		System.out.println("Phase one: " + day5_1);
 		var day5_2 = pq.phaseTwo();
 		System.out.println("Phase two: " + day5_2);
+	}
+
+	private void daySix() {
+		var in = reader.day(6);
+		var gg = new GuardGallivant(in);
+		var day6_1 = gg.phaseOne();
+		System.out.println("Distinct guard positions = " + day6_1);
 	}
 }

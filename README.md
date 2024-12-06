@@ -2,6 +2,11 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 6, phase one
+
+Similar to Floor is Lava, but currently less difficult.
+I did, however, fuck up the directions in Floor is Lava, so I had to fix those.
+
 ## 2024, Day 5, phase two
 
 I learned something about topographical sorting today.
