@@ -2,6 +2,16 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 6, phase two
+
+This took some thinking and remodeling.
+However, realizing two things made this easy:
+I only need to check locations where the guard initially went, and I need to extend the
+"distinct coordinate" check by the direction, as stepping on the same point in the same
+direction leads to a loop.
+
+The only downside is that this was a bitch to test. :)
+
 ## 2024, Day 6, phase one
 
 Similar to Floor is Lava, but currently less difficult.

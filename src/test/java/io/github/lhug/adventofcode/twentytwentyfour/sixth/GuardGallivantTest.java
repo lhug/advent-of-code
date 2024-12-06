@@ -20,7 +20,7 @@ public class GuardGallivantTest {
 ......#...
 """;
 
-	private final GuardGallivant sut = new GuardGallivant(INPUT);
+	private GuardGallivant sut = new GuardGallivant(INPUT);
 
 	@Test
 	void parses_input_into_grid() {
@@ -52,5 +52,29 @@ public class GuardGallivantTest {
 		long result = sut.phaseOne();
 
 		assertThat(result).isEqualTo(41);
+	}
+
+	@Test
+	void returns_null_when_movement_is_infinite_loop() {
+		String grid = """
+..#..
+....#
+..^..
+.#...
+...#.
+""";
+		sut = new GuardGallivant(grid);
+		var start = sut.startingPoint();
+
+		var result = sut.traverseGrid(start, sut.grid);
+
+		assertThat(result).isNull();
+	}
+
+	@Test
+	void returns_number_of_obstacles_to_add_to_make_infinite_route() {
+		var result = sut.phaseTwo();
+
+		assertThat(result).isEqualTo(6L);
 	}
 }

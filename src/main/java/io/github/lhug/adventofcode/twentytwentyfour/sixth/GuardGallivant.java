@@ -5,6 +5,7 @@ import io.github.lhug.adventofcode.common.Direction;
 import io.github.lhug.adventofcode.common.Transformer;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import static io.github.lhug.adventofcode.common.Direction.*;
@@ -30,27 +31,65 @@ public class GuardGallivant {
 
 	public long phaseOne() {
 		var startingPoint = startingPoint();
-		var steps = traverseGrid(startingPoint);
-		return steps.size();
+		var steps = Objects.requireNonNull(traverseGrid(startingPoint, grid));
+		// re-insert starting point to ensure it is counted
+		steps.add(new StepTaken(startingPoint, NORTH));
+		return steps.stream().map(StepTaken::coordinate).distinct().count();
 	}
 
-	private Set<Coordinate> traverseGrid(Coordinate startingPoint) {
-		var result = new HashSet<Coordinate>();
-		result.add(startingPoint);
+
+	public Set<StepTaken> traverseGrid(Coordinate startingPoint, char[][] currentGrid) {
+		var result = new HashSet<StepTaken>();
 		var direction = Direction.NORTH;
 		var current = startingPoint.forward(direction);
 
 		while(current.isInBounds(grid)) {
-			var token = grid[current.y()][current.x()];
+			var token = currentGrid[current.y()][current.x()];
 			if(token == '#') {
 				current = current.backward(direction);
 				direction = turn(direction);
 			} else {
-				result.add(current);
+				if (!result.add(new StepTaken(current, direction))) {
+					return null;
+				}
 			}
 			current = current.forward(direction);
 		}
 		return result;
+	}
+
+	public long phaseTwo() {
+		var start = startingPoint();
+		var locations = Objects.requireNonNull(traverseGrid(start, grid))
+				.stream()
+				.map(StepTaken::coordinate)
+				.distinct()
+				// can't set obstacle at start position
+				.filter(c -> !c.equals(start))
+				.toList();
+		return locations.stream()
+				.parallel()
+				.map(coordinate -> makesInfiniteLoop(start, coordinate))
+				.filter(Boolean.TRUE::equals)
+				.count();
+	}
+
+	private boolean makesInfiniteLoop(Coordinate startingPoint, Coordinate obstacle) {
+		var newGrid = copyGrid();
+		newGrid[obstacle.y()][obstacle.x()] = '#';
+		return traverseGrid(startingPoint, newGrid) == null;
+	}
+
+	private char[][] copyGrid() {
+		char[][] copy = new char[grid.length][];
+		for (int i = 0; i < grid.length; i++) {
+			copy[i] = grid[i].clone();
+		}
+		return copy;
+	}
+
+	public record StepTaken(Coordinate coordinate, Direction direction) {
+
 	}
 
 	private Direction turn(Direction current) {

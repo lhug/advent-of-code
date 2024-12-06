@@ -71,6 +71,8 @@ public class Days {
 		var in = reader.day(6);
 		var gg = new GuardGallivant(in);
 		var day6_1 = gg.phaseOne();
-		System.out.println("Distinct guard positions = " + day6_1);
+		System.out.println("Distinct guard positions: " + day6_1);
+		var day6_2 = gg.phaseTwo();
+		System.out.println("Possible obstacle locations: " + day6_2);
 	}
 }
