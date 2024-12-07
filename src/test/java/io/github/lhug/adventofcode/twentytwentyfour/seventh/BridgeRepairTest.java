@@ -34,26 +34,16 @@ class BridgeRepairTest {
 	}
 
 	@Test
-	void finds_valid_solutions_for_equation() {
-		var offer = new BridgeRepair.EquationPair(
-				190L,
-				new long[]{10, 19}
-		);
-
-		var result = sut.findValidSolutionsFor(offer);
-
-		assertThat(result).containsExactly(
-			new BridgeRepair.Solution(
-					offer,
-					List.of(BridgeRepair.Operator.MULTIPLY)
-			)
-		);
-	}
-
-	@Test
 	void sums_results_of_valid_solutions() {
 		var result = sut.phaseOne();
 
 		assertThat(result).isEqualTo(3749);
+	}
+
+	@Test
+	void sums_result_iof_valid_solutions_with_three_operators() {
+		var result = sut.phaseTwo();
+
+		assertThat(result).isEqualTo(11387);
 	}
 }

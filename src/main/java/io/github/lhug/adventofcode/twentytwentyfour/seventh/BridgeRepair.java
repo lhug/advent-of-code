@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.stream.IntStream;
 
 public class BridgeRepair {
 
@@ -30,7 +31,7 @@ public class BridgeRepair {
 		var solutions = new ArrayList<Solution>();
 		var combinations = Math.pow(2, offer.operands.length -1);
 		for (int i = 0; i < combinations; i++) {
-			var operators = generateOperators(i, offer.operands.length - 1);
+			var operators = generateTwoOperators(i, offer.operands.length - 1);
 			var result = evaluate(offer.operands(), operators);
 			if(result == offer.result()) {
 				solutions.add(new Solution(offer, operators));
@@ -39,7 +40,7 @@ public class BridgeRepair {
 		return solutions;
 	}
 	
-	private List<Operator> generateOperators(int combination, int length) {
+	private List<Operator> generateTwoOperators(int combination, int length) {
 		List<Operator> result = new ArrayList<>();
 		for (int i = 0; i < length; i++) {
 			if ((combination & (1 << i)) != 0) {
@@ -49,6 +50,29 @@ public class BridgeRepair {
 			}
 		}
 		return result;
+	}
+
+	public boolean hasValidSolutionWithThreeOperators(EquationPair offer) {
+		var combinations = (int) Math.pow(3, offer.operands.length -1);
+
+		return IntStream.range(0, combinations)
+				.parallel()
+				.mapToObj(current -> generateThreeOperators(current, offer.operands.length - 1))
+				.map(operators -> evaluate(offer.operands(), operators))
+				.anyMatch(result -> result == offer.result());
+	}
+
+	private List<Operator> generateThreeOperators(int combination, int length) {
+		List<Operator> operators = new ArrayList<>();
+		for (int i = 0; i < length; i++) {
+			int opIndex = (combination / (int) Math.pow(3, i)) % 3; // Extract base-3 digit
+			switch (opIndex) {
+				case 0 -> operators.add(Operator.PLUS);
+				case 1 -> operators.add(Operator.MULTIPLY);
+				case 2 -> operators.add(Operator.CONCAT);
+			}
+		}
+		return operators;
 	}
 
 	private static long evaluate(long[] numbers, List<Operator> operators) {
@@ -63,7 +87,15 @@ public class BridgeRepair {
 		return equations.stream()
 				.map(this::findValidSolutionsFor)
 				.filter(list -> !list.isEmpty())
-				.mapToLong(list -> list.get(0).pair().result())
+				.mapToLong(list -> list.getFirst().pair().result())
+				.sum();
+	}
+
+	public long phaseTwo() {
+		return equations.stream()
+				.parallel()
+				.filter(this::hasValidSolutionWithThreeOperators)
+				.mapToLong(EquationPair::result)
 				.sum();
 	}
 
@@ -75,7 +107,8 @@ public class BridgeRepair {
 
 	enum Operator {
 		PLUS(Math::addExact),
-		MULTIPLY(Math::multiplyExact);
+		MULTIPLY(Math::multiplyExact),
+		CONCAT((a, b) -> Long.parseLong(String.valueOf(a) + b));
 
 		private final BiFunction<Long, Long, Long> operation;
 

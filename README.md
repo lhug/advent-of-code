@@ -2,6 +2,15 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 7, phase two
+
+I did almost see that coming. While I did anticipate a third operator, I was too fixated
+on the "has multiple solutions" part of the explanation.
+
+I ran the modified code on the puzzle input, and it took about 15 seconds.
+I modified it a lot - more parallelization, ignoring "all" solutions and only finding valid
+equations - and it runs a lot faster. Still about 3 seconds, but much less than before.
+
 ## 2024, Day 7, phase one
 
 Thought long and hard about this. Did not find a useful solution.

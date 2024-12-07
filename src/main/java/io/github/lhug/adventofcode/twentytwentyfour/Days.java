@@ -83,5 +83,7 @@ public class Days {
 		var br = new BridgeRepair(in);
 		var day7_1 = br.phaseOne();
 		System.out.println("Calibration value 1: " + day7_1);
+		var day7_2 = br.phaseTwo();
+		System.out.println("Calibration value 2: " + day7_2);
 	}
 }
