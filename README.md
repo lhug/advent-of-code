@@ -2,6 +2,13 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 7, phase one
+
+Thought long and hard about this. Did not find a useful solution.
+Had to brute force. I am completely unsure how the decision process for the
+operator works.
+Wasted a lot of time because I - again - misunderstood the assignment.
+
 ## 2024, Day 6, phase two
 
 This took some thinking and remodeling.
