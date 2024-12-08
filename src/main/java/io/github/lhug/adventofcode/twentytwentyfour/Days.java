@@ -1,6 +1,7 @@
 package io.github.lhug.adventofcode.twentytwentyfour;
 
 import io.github.lhug.adventofcode.common.ResourceReader;
+import io.github.lhug.adventofcode.twentytwentyfour.eigth.ResonantCollinearity;
 import io.github.lhug.adventofcode.twentytwentyfour.fifth.PrintQueue;
 import io.github.lhug.adventofcode.twentytwentyfour.first.DistanceCalculator;
 import io.github.lhug.adventofcode.twentytwentyfour.fourth.WordSearch;
@@ -22,6 +23,7 @@ public class Days {
 		days.dayFive();
 		days.daySix();
 		days.daySeven();
+		days.dayEight();
 	}
 
 	private void dayOne() {
@@ -85,5 +87,12 @@ public class Days {
 		System.out.println("Calibration value 1: " + day7_1);
 		var day7_2 = br.phaseTwo();
 		System.out.println("Calibration value 2: " + day7_2);
+	}
+
+	private void dayEight() {
+		var in = reader.day(8);
+		var rc = new ResonantCollinearity(in);
+		var day8_1 = rc.phaseOne();
+		System.out.println("Unique antinode locations: " + day8_1);
 	}
 }

@@ -2,6 +2,14 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 8, phase one
+
+Hooray for overengineering :)
+I was so worried about the antinodes until I realized that I do not need to mark anything.
+I just need to check if, for every antenna that has a pair, is the "opposite" part on the grid.
+Since I had just extended my Coordinate and Direction classes, this was relatively simple.
+Fun to think of how to test this :)
+
 ## 2024, Day 7, phase two
 
 I did almost see that coming. While I did anticipate a third operator, I was too fixated
