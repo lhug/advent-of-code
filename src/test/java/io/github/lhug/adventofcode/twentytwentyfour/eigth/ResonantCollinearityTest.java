@@ -130,6 +130,21 @@ public class ResonantCollinearityTest {
 		}
 
 		@Test
+		void finds_all_antinodes_on_grid() {
+			var grid = new char[4][4];
+			var sut = new Antenna('0', new Coordinate(2, 2));
+			var second = new Antenna('0', new Coordinate(3, 3));
+
+			var result = sut.longAntinodes(List.of(sut, second), grid);
+
+			assertThat(result).containsExactly(
+					new Coordinate(2, 2),
+					new Coordinate(1, 1),
+					new Coordinate(0, 0)
+			);
+		}
+
+		@Test
 		void finds_no_antinodes_when_antinode_is_off_grid() {
 			var grid = new char[3][3];
 
@@ -166,5 +181,12 @@ public class ResonantCollinearityTest {
 		var result = sut.phaseOne();
 
 		assertThat(result).isEqualTo(14L);
+	}
+
+	@Test
+	void counts_unique_locations_for_long_antinodes() {
+		var result = sut.phaseTwo();
+
+		assertThat(result).isEqualTo(34L);
 	}
 }

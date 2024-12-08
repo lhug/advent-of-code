@@ -48,6 +48,15 @@ public class ResonantCollinearity {
 
 	}
 
+	public long phaseTwo() {
+		return antennae.stream()
+				.parallel()
+				.map(antenna -> antenna.longAntinodes(antennae, grid))
+				.flatMap(List::stream)
+				.distinct()
+				.count();
+	}
+
 	record Antenna(char frequency, Coordinate coordinate) {
 
 		public List<Direction> distanceFrom(Antenna second) {
@@ -86,6 +95,25 @@ public class ResonantCollinearity {
 				}
 				if(current.isInBounds(grid)) {
 					results.add(current);
+				}
+			}
+			return results;
+		}
+
+		public List<Coordinate> longAntinodes(List<Antenna> antennae, char[][] grid) {
+			List<Coordinate> results = new ArrayList<>();
+			for(Antenna antenna : antennae) {
+				if(this == antenna || this.frequency != antenna.frequency) {
+					continue;
+				}
+				var directions = this.distanceFrom(antenna);
+				var current = coordinate();
+
+				while(current.isInBounds(grid)) {
+					results.add(current);
+					for(Direction direction : directions) {
+						current = current.backward(direction);
+					}
 				}
 			}
 			return results;

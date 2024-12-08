@@ -2,6 +2,13 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 8, phase two
+
+This was surprisingly easy. Am not cleaning this up anymore, as this is a wonderful example
+of "how to extend simple functionality".
+Everything was already there, the only requirement change was not to stop after the first step.
+Overengineering paid off here :)
+
 ## 2024, Day 8, phase one
 
 Hooray for overengineering :)

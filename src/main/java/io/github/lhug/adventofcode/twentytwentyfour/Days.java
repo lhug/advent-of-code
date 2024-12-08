@@ -94,5 +94,7 @@ public class Days {
 		var rc = new ResonantCollinearity(in);
 		var day8_1 = rc.phaseOne();
 		System.out.println("Unique antinode locations: " + day8_1);
+		var day8_2 = rc.phaseTwo();
+		System.out.println("Long unique antinode locations: " + day8_2);
 	}
 }
