@@ -2,6 +2,12 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 9, phase two
+
+So. Many. Errors.
+And all so silly. Defragmentation to the right, counting off by one... all thos silly things.
+Luckily, I have tests to tell me where I am going wrong :)
+
 ## 2024, Day 9, phase one
 
 Silly mistakes. Confuse current count and index, forget that there are more than 9 numbers..

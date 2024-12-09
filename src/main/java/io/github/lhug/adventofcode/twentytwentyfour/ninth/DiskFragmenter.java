@@ -1,6 +1,8 @@
 package io.github.lhug.adventofcode.twentytwentyfour.ninth;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 public class DiskFragmenter {
 
@@ -69,5 +71,68 @@ public class DiskFragmenter {
 		var parsed = parse(input);
 		var compressed = compress(parsed);
 		return checksum(compressed);
+	}
+
+	public String defragment(String in) {
+		var array = in.toCharArray();
+		int fileId = Integer.MAX_VALUE;
+		for(int i = array.length - 1; i >= 0; i--) {
+			var current = array[i];
+			if(current != '.') {
+				int value = current - '0';
+				if(value < fileId) {
+					fileId = value;
+					var fileLength = lengthOfFile(array, i, current);
+					var index = freeBlockWithLength(array, fileLength, i);
+					if (index != -1) {
+						for(int j = 0; j < fileLength; j++) {
+							array[index + j] = current;
+							array[i - j] = '.';
+						}
+					}
+					i = i - fileLength +1;
+				}
+			}
+		}
+		return new String(array);
+	}
+
+	private int freeBlockWithLength(char[] array, int length, int maxIndex) {
+		int start = -1;
+		int space = 0;
+
+		for (int i = 0; i <= array.length; i++) {
+			if (i < array.length && array[i] == '.' && i < maxIndex) {
+				if (start == -1) {
+					start = i;
+				}
+				space++;
+				if (space == length) {
+					return start;
+				}
+			} else {
+				start = -1;
+				space = 0;
+			}
+		}
+		return -1;
+	}
+
+	private int lengthOfFile(char[] array, int start, char value) {
+		int count = 0;
+		for (int i = start; i >= 0 ; i--) {
+			if(array[i] == value) {
+				count++;
+			} else {
+				break;
+			}
+		}
+		return count;
+	}
+
+	public long phaseTwo(String input) {
+		var parsed = parse(input);
+		var defragmented = defragment(parsed);
+		return checksum(defragmented);
 	}
 }

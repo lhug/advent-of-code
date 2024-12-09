@@ -49,4 +49,18 @@ class DiskFragmenterTest {
 
 		assertThat(result).isEqualTo(1928);
 	}
+
+	@Test
+	void defragments_by_file() {
+		var result = sut.defragment("00...111...2...333.44.5555.6666.777.888899");
+
+		assertThat(result).isEqualTo("00992111777.44.333....5555.6666.....8888..");
+	}
+
+	@Test
+	void calculates_checksum_after_defragmentation() {
+		var result = sut.phaseTwo(INPUT);
+
+		assertThat(result).isEqualTo(2858L);
+	}
 }

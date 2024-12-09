@@ -105,5 +105,7 @@ public class Days {
 		var df = new DiskFragmenter();
 		var day9_1 = df.phaseOne(in);
 		System.out.println("Checksum part one: " + day9_1);
+		var day9_2 = df.phaseTwo(in);
+		System.out.println("Defragmented checksum: " + day9_2);
 	}
 }
