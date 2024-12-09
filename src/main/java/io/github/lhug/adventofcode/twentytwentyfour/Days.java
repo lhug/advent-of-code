@@ -5,6 +5,7 @@ import io.github.lhug.adventofcode.twentytwentyfour.eigth.ResonantCollinearity;
 import io.github.lhug.adventofcode.twentytwentyfour.fifth.PrintQueue;
 import io.github.lhug.adventofcode.twentytwentyfour.first.DistanceCalculator;
 import io.github.lhug.adventofcode.twentytwentyfour.fourth.WordSearch;
+import io.github.lhug.adventofcode.twentytwentyfour.ninth.DiskFragmenter;
 import io.github.lhug.adventofcode.twentytwentyfour.second.ReactorParameters;
 import io.github.lhug.adventofcode.twentytwentyfour.seventh.BridgeRepair;
 import io.github.lhug.adventofcode.twentytwentyfour.sixth.GuardGallivant;
@@ -24,6 +25,7 @@ public class Days {
 		days.daySix();
 		days.daySeven();
 		days.dayEight();
+		days.dayNine();
 	}
 
 	private void dayOne() {
@@ -96,5 +98,12 @@ public class Days {
 		System.out.println("Unique antinode locations: " + day8_1);
 		var day8_2 = rc.phaseTwo();
 		System.out.println("Long unique antinode locations: " + day8_2);
+	}
+
+	private void dayNine() {
+		var in = reader.day(9);
+		var df = new DiskFragmenter();
+		var day9_1 = df.phaseOne(in);
+		System.out.println("Checksum part one: " + day9_1);
 	}
 }

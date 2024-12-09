@@ -2,6 +2,11 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 9, phase one
+
+Silly mistakes. Confuse current count and index, forget that there are more than 9 numbers..
+However, once that was finished, everything is a-go.
+
 ## 2024, Day 8, phase two
 
 This was surprisingly easy. Am not cleaning this up anymore, as this is a wonderful example
