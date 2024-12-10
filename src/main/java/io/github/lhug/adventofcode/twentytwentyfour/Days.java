@@ -9,6 +9,7 @@ import io.github.lhug.adventofcode.twentytwentyfour.ninth.DiskFragmenter;
 import io.github.lhug.adventofcode.twentytwentyfour.second.ReactorParameters;
 import io.github.lhug.adventofcode.twentytwentyfour.seventh.BridgeRepair;
 import io.github.lhug.adventofcode.twentytwentyfour.sixth.GuardGallivant;
+import io.github.lhug.adventofcode.twentytwentyfour.tenth.HoofIt;
 import io.github.lhug.adventofcode.twentytwentyfour.third.MullItOver;
 
 public class Days {
@@ -26,6 +27,7 @@ public class Days {
 		days.daySeven();
 		days.dayEight();
 		days.dayNine();
+		days.dayTen();
 	}
 
 	private void dayOne() {
@@ -107,5 +109,12 @@ public class Days {
 		System.out.println("Checksum part one: " + day9_1);
 		var day9_2 = df.phaseTwo(in);
 		System.out.println("Defragmented checksum: " + day9_2);
+	}
+
+	private void dayTen() {
+		var in = reader.day(10);
+		var hi = new HoofIt(in);
+		var day10_1 = hi.phaseOne();
+		System.out.println("Trailhead score 0-9:" + day10_1);
 	}
 }

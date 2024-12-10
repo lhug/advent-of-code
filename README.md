@@ -2,6 +2,10 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 10, phase one
+
+Terror! I mean, initially. Recursion requires understanding recursion :)
+
 ## 2024, Day 9, phase two
 
 So. Many. Errors.
