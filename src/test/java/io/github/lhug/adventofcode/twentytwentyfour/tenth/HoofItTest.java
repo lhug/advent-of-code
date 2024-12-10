@@ -142,4 +142,61 @@ class HoofItTest {
 
 		assertThat(result).isEqualTo(36);
 	}
+
+	@Test
+	void finds_distinct_hiking_trails() {
+		sut = new HoofIt("""
+				.....0.
+				..4321.
+				..5..2.
+				..6543.
+				..7..4.
+				..8765.
+				..9....
+				""");
+
+		var result = sut.distinctTrails(new Coordinate(5, 0));
+
+		assertThat(result).isEqualTo(3);
+	}
+
+	@Test
+	void finds_many_distinct_hiking_trails() {
+		sut = new HoofIt("""
+				..90..9
+				...1.98
+				...2..7
+				6543456
+				765.987
+				876....
+				987....
+				""");
+
+		var result = sut.distinctTrails(new Coordinate(3, 0));
+
+		assertThat(result).isEqualTo(13);
+	}
+
+	@Test
+	void finds_a_huge_anoubt_of_trails() {
+		sut = new HoofIt("""
+				012345
+				123456
+				234567
+				345678
+				4.6789
+				56789.
+				""");
+
+		var result = sut.distinctTrails(new Coordinate(0, 0));
+
+		assertThat(result).isEqualTo(227);
+	}
+
+	@Test
+	void counts_all_distinct_paths() {
+		var result = sut.phaseTwo();
+
+		assertThat(result).isEqualTo(81);
+	}
 }

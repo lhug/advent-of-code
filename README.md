@@ -2,6 +2,14 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 10, phase two
+
+This is ridiculous. I accidentally created the solution for part two while implementing
+part one. And when did I realize this? AFTER solving part two AGAIN. Not only did I
+overengineer this solution like mad, I also wasted HUGE amounts of time figuring out an
+unnecessarily complicated solution, which I reduced until it was the same as right
+before I solved part one. This is sooo embarrassing.
+
 ## 2024, Day 10, phase one
 
 Terror! I mean, initially. Recursion requires understanding recursion :)

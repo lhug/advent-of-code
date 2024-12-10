@@ -115,6 +115,8 @@ public class Days {
 		var in = reader.day(10);
 		var hi = new HoofIt(in);
 		var day10_1 = hi.phaseOne();
-		System.out.println("Trailhead score 0-9:" + day10_1);
+		System.out.println("Trailhead score unique target:" + day10_1);
+		var day10_2 = hi.phaseTwo();
+		System.out.println("Trailhead score distinct paths:" + day10_2);
 	}
 }

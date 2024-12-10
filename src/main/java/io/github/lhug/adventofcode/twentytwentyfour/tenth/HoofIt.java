@@ -12,6 +12,7 @@ public class HoofIt {
 
 	public HoofIt(String input) {
 		this.grid = Transformer.toMatrix(input);
+		startingPoints();
 	}
 
 	void startingPoints() {
@@ -26,11 +27,7 @@ public class HoofIt {
 	}
 
 	public long scoreFor(Coordinate coordinate) {
-		return scoreFor(coordinate, 0);
-	}
-
-	long scoreFor(Coordinate coordinate, int value) {
-		return scoreFor(coordinate, value, new HashSet<>());
+		return scoreFor(coordinate, 0, new HashSet<>());
 	}
 
 	public long scoreFor(Coordinate coordinate, int value, Set<Coordinate> nines) {
@@ -50,9 +47,34 @@ public class HoofIt {
 	}
 
 	public long phaseOne() {
-		startingPoints();
 		return startingPoints.parallelStream()
 				.mapToLong(this::scoreFor)
+				.sum();
+	}
+
+	public long distinctTrails(Coordinate coordinate) {
+		return distinctTrails(coordinate, 0);
+	}
+
+	private long distinctTrails(Coordinate coordinate, int value) {
+		long result = 0;
+		for (Direction direction : Direction.values()) {
+			var next = coordinate.forward(direction);
+			if(next.isInBounds(grid)) {
+				int current = grid[next.y()][next.x()] - '0';
+				if (current == 9 && value == 8) {
+					result += 1;
+				} else if (current == value + 1) {
+					result += distinctTrails(next, current);
+				}
+			}
+		}
+		return result;
+	}
+
+	public long phaseTwo() {
+		return startingPoints.parallelStream()
+				.mapToLong(this::distinctTrails)
 				.sum();
 	}
 }
