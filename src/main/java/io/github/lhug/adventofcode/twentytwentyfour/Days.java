@@ -25,7 +25,7 @@ public class Days {
 		days.dayFour();
 		days.dayFive();
 		days.daySix();
-		days.daySeven();
+		//days.daySeven();
 		days.dayEight();
 		days.dayNine();
 		days.dayTen();
@@ -127,5 +127,7 @@ public class Days {
 		var pp = new PlutonianPebbles(in);
 		var day11_1 = pp.phaseOne();
 		System.out.println("Initial stone count: " + day11_1);
+		var day11_2 = pp.phaseTwo();
+		System.out.println("Second stone count: " + day11_2);
 	}
 }

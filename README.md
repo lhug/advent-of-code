@@ -2,6 +2,23 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 11, phase two
+
+This I did not understand. So I had to get help from an AI.
+My approach was to find mathematical rules to apply here, to basically
+create a shortcut to the solution. That was, however, not the correct way
+to go about this.
+After having the AI generate some code for me (which initially did not work),
+I went over it to examine the finer details.
+
+Turns out, the AI Code - despite being much faster than my code - does not do much different.
+The main benefit of the AI code is the introduction of frequencies. All numbers
+are still calculated as required, no step is being removed, however the massive difference
+lies in the fact that my idea was to just keep all the numbers in a List (or Stream) and just reiterate and extend,
+while the AI code just keeps a map handy to store the amount of numbers. Which means the max site of the Map is not
+"final amount of numbers" (in my case, 272673043446478), but rather "amount of unique numbers in step".
+Which is obviously WAY lower :)
+
 ## 2024, Day 11, phase one
 
 Not much to say about this, to be honest. First task relatively straightforward.
