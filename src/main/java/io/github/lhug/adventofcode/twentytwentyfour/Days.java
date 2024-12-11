@@ -2,6 +2,7 @@ package io.github.lhug.adventofcode.twentytwentyfour;
 
 import io.github.lhug.adventofcode.common.ResourceReader;
 import io.github.lhug.adventofcode.twentytwentyfour.eigth.ResonantCollinearity;
+import io.github.lhug.adventofcode.twentytwentyfour.eleventh.PlutonianPebbles;
 import io.github.lhug.adventofcode.twentytwentyfour.fifth.PrintQueue;
 import io.github.lhug.adventofcode.twentytwentyfour.first.DistanceCalculator;
 import io.github.lhug.adventofcode.twentytwentyfour.fourth.WordSearch;
@@ -28,6 +29,7 @@ public class Days {
 		days.dayEight();
 		days.dayNine();
 		days.dayTen();
+		days.dayEleven();
 	}
 
 	private void dayOne() {
@@ -118,5 +120,12 @@ public class Days {
 		System.out.println("Trailhead score unique target:" + day10_1);
 		var day10_2 = hi.phaseTwo();
 		System.out.println("Trailhead score distinct paths:" + day10_2);
+	}
+
+	private void dayEleven() {
+		var in = reader.day(11);
+		var pp = new PlutonianPebbles(in);
+		var day11_1 = pp.phaseOne();
+		System.out.println("Initial stone count: " + day11_1);
 	}
 }

@@ -2,6 +2,11 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 11, phase one
+
+Not much to say about this, to be honest. First task relatively straightforward.
+List of numbers, apply rules, count.
+
 ## 2024, Day 10, phase two
 
 This is ridiculous. I accidentally created the solution for part two while implementing
