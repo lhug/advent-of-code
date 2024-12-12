@@ -59,7 +59,7 @@ public class GardenGroups {
 			visited.add(current);
 		}
 		regions.computeIfAbsent(areaType, __ -> new ArrayList<>())
-				.add(new Region(areaType, area, perimeter));
+				.add(new Region(area, perimeter));
 	}
 
 	public long phaseOne() {
@@ -71,7 +71,7 @@ public class GardenGroups {
 				.sum();
 	}
 
-	record Region(char type, long area, long perimeter){
+	record Region(long area, long perimeter){
 
 		public long fenceCost() {
 			return area * perimeter;

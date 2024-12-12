@@ -28,17 +28,17 @@ class GardenGroupsTest {
 	@Test
 	void finds_areas_in_matrix() {
 		assertThat(sut.regions).containsOnly(
-				entry('A', List.of(new Region('A', 4L, 10L))),
-				entry('B', List.of(new Region('B', 4L, 8L))),
-				entry('C', List.of(new Region('C', 4L, 10L))),
-				entry('D', List.of(new Region('D', 1L, 4L))),
-				entry('E', List.of(new Region('E', 3L, 8L)))
+				entry('A', List.of(new Region(4L, 10L))),
+				entry('B', List.of(new Region(4L, 8L))),
+				entry('C', List.of(new Region(4L, 10L))),
+				entry('D', List.of(new Region(1L, 4L))),
+				entry('E', List.of(new Region(3L, 8L)))
 		);
 	}
 
 	@Test
 	void region_calculates_price() {
-		var region = new Region('A', 4L, 10L);
+		var region = new Region(4L, 10L);
 
 		assertThat(region.fenceCost()).isEqualTo(40L);
 	}
@@ -48,5 +48,12 @@ class GardenGroupsTest {
 		var result = sut.phaseOne();
 
 		assertThat(result).isEqualTo(140);
+	}
+
+	@Test
+	void sums_reduces_price_of_all_regions() {
+		var result = sut.phaseTwo();
+
+		assertThat(result).isEqualTo(80);
 	}
 }
