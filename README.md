@@ -2,6 +2,13 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 12, phase one
+
+Overengineering at it again. Also, my stupid head.
+I started out trying to gather all required coordinates etc.
+Until I figured out, that I do not need any coordinates, except to know where to start,
+I was going mad slowly. After that, I only required to fix an off-by-one error.
+
 ## 2024, Day 11, phase two
 
 This I did not understand. So I had to get help from an AI.
