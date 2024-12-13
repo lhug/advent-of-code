@@ -12,6 +12,7 @@ import io.github.lhug.adventofcode.twentytwentyfour.seventh.BridgeRepair;
 import io.github.lhug.adventofcode.twentytwentyfour.sixth.GuardGallivant;
 import io.github.lhug.adventofcode.twentytwentyfour.tenth.HoofIt;
 import io.github.lhug.adventofcode.twentytwentyfour.third.MullItOver;
+import io.github.lhug.adventofcode.twentytwentyfour.thirteenth.ClawContraption;
 import io.github.lhug.adventofcode.twentytwentyfour.twelfth.GardenGroups;
 
 public class Days {
@@ -32,6 +33,7 @@ public class Days {
 		days.dayTen();
 		days.dayEleven();
 		days.dayTwelve();
+		days.dayThirteen();
 	}
 
 	private void dayOne() {
@@ -138,5 +140,12 @@ public class Days {
 		var gg = new GardenGroups(in);
 		var day12_1 = gg.phaseOne();
 		System.out.println("Fence cost phase one: " + day12_1);
+	}
+
+	private void dayThirteen() {
+		var in = reader.day(13);
+		var cc = new ClawContraption(in);
+		var day13_1 = cc.phaseOne();
+		System.out.println("Token cost phase one: " + day13_1);
 	}
 }

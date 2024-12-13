@@ -2,6 +2,11 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 13, phase one
+
+Damn. I knew *what* to do, but had no idea *how.
+Had a lot to learn today :)
+
 ## 2024, Day 12, phase two
 
 Nope. Fuck it. Stole entire code from https://github.com/imisaacwu/AdventOfCode2024/blob/main/src/day12.java.

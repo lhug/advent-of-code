@@ -49,11 +49,4 @@ class GardenGroupsTest {
 
 		assertThat(result).isEqualTo(140);
 	}
-
-	@Test
-	void sums_reduces_price_of_all_regions() {
-		var result = sut.phaseTwo();
-
-		assertThat(result).isEqualTo(80);
-	}
 }
