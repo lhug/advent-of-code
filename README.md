@@ -2,6 +2,18 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 13, phase two
+
+VERY frustrating. This time, I did not know what to do at first.
+As soon as I understood, I found that I have literally never implemented
+something like this in Java. So, I asked the great Helper.
+Basically, ChatGPT gave solutions that were so ridiculous that I could not
+implement them. Maybe I suck at prompts, idk.
+After finally remembering how math works, I still had to do multiple takes, and
+compare my approach with that of others on reddit.
+Turns out, the solutions increase a lot, when you just cast the results to long,
+instead of trying to check if they actually ARE long values.
+
 ## 2024, Day 13, phase one
 
 Damn. I knew *what* to do, but had no idea *how.

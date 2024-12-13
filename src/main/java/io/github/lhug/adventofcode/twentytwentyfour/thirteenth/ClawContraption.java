@@ -1,7 +1,5 @@
 package io.github.lhug.adventofcode.twentytwentyfour.thirteenth;
 
-import io.github.lhug.adventofcode.common.Coordinate;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +20,7 @@ public class ClawContraption {
 		var lines = data.split("\n");
 		var a = parseTo(lines[0], Vector::new);
 		var b = parseTo(lines[1], Vector::new);
-		var prize = parseTo(lines[2], Coordinate::new);
+		var prize = parseTo(lines[2], Vector::new);
 		raw.add(new Machine(a, b, prize));
 	}
 
@@ -38,10 +36,10 @@ public class ClawContraption {
 	}
 
 	Optional<Vector> findCombination(Machine machine) {
-		for (int a = 0; a < 100; a++) {
-			int numeratorB = machine.win.x() - a * machine.a.x;
+		for (long a = 0; a < 100; a++) {
+			long numeratorB = machine.win.x() - a * machine.a.x;
 			if (numeratorB % machine.b.x == 0) {
-				int b = numeratorB / machine.b.x;
+				long b = numeratorB / machine.b.x;
 				if(a * machine.a.y + b * machine.b.y == machine.win.y()) {
 					return Optional.of(new Vector(a, b));
 				}
@@ -59,6 +57,36 @@ public class ClawContraption {
 				.sum();
 	}
 
-	public record Vector(int x, int y) {}
-	public record Machine(Vector a, Vector b, Coordinate win) {}
+	public long phaseTwo() {
+		return raw.stream()
+				.map(machine -> new Machine(
+						machine.a,
+						machine.b,
+						new Vector(
+								machine.win.x() + 10_000_000_000_000L,
+								machine.win.y() + 10_000_000_000_000L)
+				))
+				.map(this::findSolutions)
+				.filter(Optional::isPresent)
+				.map(Optional::get)
+				.mapToLong(v -> (v.x * 3L) + v.y)
+				.sum();
+	}
+
+	public Optional<Vector> findSolutions(Machine machine) {
+		double divisor = (machine.a.x * machine.b.y) - (machine.a.y * machine.b.x);
+		double a = ((machine.win.x() * machine.b.y) - (machine.win.y() * machine.b.x)) / divisor;
+		double b = ((machine.a.x * machine.win.y()) - (machine.a.y * machine.win.x())) / divisor;
+		if (isInt(a) && isInt(b)) {
+			return Optional.of(new Vector((long) a, (long) b));
+		}
+		return Optional.empty();
+	}
+
+	static boolean isInt(double in) {
+		return in % 1 == 0;
+	}
+
+	public record Vector(long x, long y) {}
+	public record Machine(Vector a, Vector b, Vector win) {}
 }

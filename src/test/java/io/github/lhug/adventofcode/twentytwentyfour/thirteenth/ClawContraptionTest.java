@@ -36,22 +36,22 @@ public class ClawContraptionTest {
 						new Machine(
 								new Vector(94, 34),
 								new Vector(22, 67),
-								new Coordinate(8400, 5400)
+								new Vector(8400, 5400)
 						),
 						new Machine(
 								new Vector(26, 66),
 								new Vector(67, 21),
-								new Coordinate(12748, 12176)
+								new Vector(12748, 12176)
 						),
 						new Machine(
 								new Vector(17, 86),
 								new Vector(84, 37),
-								new Coordinate(7870, 6450)
+								new Vector(7870, 6450)
 						),
 						new Machine(
 								new Vector(69, 23),
 								new Vector(27, 71),
-								new Coordinate(18641, 10279)
+								new Vector(18641, 10279)
 						)
 				);
 	}
@@ -61,7 +61,7 @@ public class ClawContraptionTest {
 		var machine = new Machine(
 				new Vector(26, 66),
 				new Vector(67, 21),
-				new Coordinate(12748, 12176)
+				new Vector(12748, 12176)
 		);
 
 		var result = sut.findCombination(machine);
@@ -75,7 +75,7 @@ public class ClawContraptionTest {
 		var machine = new Machine(
 				new Vector(94, 34),
 				new Vector(22, 67),
-				new Coordinate(8400, 5400)
+				new Vector(8400, 5400)
 		);
 
 		var result = sut.findCombination(machine);
@@ -88,7 +88,7 @@ public class ClawContraptionTest {
 		var machine = new Machine(
 				new Vector(17, 86),
 				new Vector(84, 37),
-				new Coordinate(7870, 6450)
+				new Vector(7870, 6450)
 		);
 
 		var result = sut.findCombination(machine);

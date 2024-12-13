@@ -147,5 +147,7 @@ public class Days {
 		var cc = new ClawContraption(in);
 		var day13_1 = cc.phaseOne();
 		System.out.println("Token cost phase one: " + day13_1);
+		var day13_2 = cc.phaseTwo();
+		System.out.println("Token cost phase two: " + day13_2);
 	}
 }
