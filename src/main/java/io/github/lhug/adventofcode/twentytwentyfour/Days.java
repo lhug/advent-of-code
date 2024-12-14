@@ -5,6 +5,7 @@ import io.github.lhug.adventofcode.twentytwentyfour.eigth.ResonantCollinearity;
 import io.github.lhug.adventofcode.twentytwentyfour.eleventh.PlutonianPebbles;
 import io.github.lhug.adventofcode.twentytwentyfour.fifth.PrintQueue;
 import io.github.lhug.adventofcode.twentytwentyfour.first.DistanceCalculator;
+import io.github.lhug.adventofcode.twentytwentyfour.fourteenth.RestroomRedoubt;
 import io.github.lhug.adventofcode.twentytwentyfour.fourth.WordSearch;
 import io.github.lhug.adventofcode.twentytwentyfour.ninth.DiskFragmenter;
 import io.github.lhug.adventofcode.twentytwentyfour.second.ReactorParameters;
@@ -34,6 +35,7 @@ public class Days {
 		days.dayEleven();
 		days.dayTwelve();
 		days.dayThirteen();
+		days.dayFourteen();
 	}
 
 	private void dayOne() {
@@ -149,5 +151,12 @@ public class Days {
 		System.out.println("Token cost phase one: " + day13_1);
 		var day13_2 = cc.phaseTwo();
 		System.out.println("Token cost phase two: " + day13_2);
+	}
+
+	private void dayFourteen() {
+		var in = reader.day(14);
+		var rr = new RestroomRedoubt(in);
+		var day14_1 = rr.safetyFactor(100, new int[103][101]);
+		System.out.println("Safety factor 1: " + day14_1);
 	}
 }

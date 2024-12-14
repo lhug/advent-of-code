@@ -1,5 +1,7 @@
 package io.github.lhug.adventofcode.twentytwentyfour.thirteenth;
 
+import io.github.lhug.adventofcode.common.Vector;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,10 +39,10 @@ public class ClawContraption {
 
 	Optional<Vector> findCombination(Machine machine) {
 		for (long a = 0; a < 100; a++) {
-			long numeratorB = machine.win.x() - a * machine.a.x;
-			if (numeratorB % machine.b.x == 0) {
-				long b = numeratorB / machine.b.x;
-				if(a * machine.a.y + b * machine.b.y == machine.win.y()) {
+			long numeratorB = machine.win.x() - a * machine.a.x();
+			if (numeratorB % machine.b.x() == 0) {
+				long b = numeratorB / machine.b.x();
+				if(a * machine.a.y() + b * machine.b.y() == machine.win.y()) {
 					return Optional.of(new Vector(a, b));
 				}
 			}
@@ -53,7 +55,7 @@ public class ClawContraption {
 				.map(this::findCombination)
 				.filter(Optional::isPresent)
 				.map(Optional::get)
-				.mapToLong(v -> (v.x * 3L) + v.y)
+				.mapToLong(v -> (v.x() * 3L) + v.y())
 				.sum();
 	}
 
@@ -69,14 +71,14 @@ public class ClawContraption {
 				.map(this::findSolutions)
 				.filter(Optional::isPresent)
 				.map(Optional::get)
-				.mapToLong(v -> (v.x * 3L) + v.y)
+				.mapToLong(v -> (v.x() * 3L) + v.y())
 				.sum();
 	}
 
 	public Optional<Vector> findSolutions(Machine machine) {
-		double divisor = (machine.a.x * machine.b.y) - (machine.a.y * machine.b.x);
-		double a = ((machine.win.x() * machine.b.y) - (machine.win.y() * machine.b.x)) / divisor;
-		double b = ((machine.a.x * machine.win.y()) - (machine.a.y * machine.win.x())) / divisor;
+		double divisor = (machine.a.x() * machine.b.y()) - (machine.a.y() * machine.b.x());
+		double a = ((machine.win.x() * machine.b.y()) - (machine.win.y() * machine.b.x())) / divisor;
+		double b = ((machine.a.x() * machine.win.y()) - (machine.a.y() * machine.win.x())) / divisor;
 		if (isInt(a) && isInt(b)) {
 			return Optional.of(new Vector((long) a, (long) b));
 		}
@@ -87,6 +89,5 @@ public class ClawContraption {
 		return in % 1 == 0;
 	}
 
-	public record Vector(long x, long y) {}
 	public record Machine(Vector a, Vector b, Vector win) {}
 }

@@ -1,11 +1,10 @@
 package io.github.lhug.adventofcode.twentytwentyfour.thirteenth;
 
-import io.github.lhug.adventofcode.common.Coordinate;
+import io.github.lhug.adventofcode.common.Vector;
 import org.junit.jupiter.api.Test;
 
 import static io.github.lhug.adventofcode.twentytwentyfour.thirteenth.ClawContraption.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.InstanceOfAssertFactories.ARRAY;
 
 public class ClawContraptionTest {
 

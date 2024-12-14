@@ -2,6 +2,13 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 14, phase one
+
+Silly, silly stuff. Off by ones repeatedly, forgetting that
+multiplying anything by zero makes everything zero,
+and of course, copying the wrong values for testing.
+Wonderful :D
+
 ## 2024, Day 13, phase two
 
 VERY frustrating. This time, I did not know what to do at first.
