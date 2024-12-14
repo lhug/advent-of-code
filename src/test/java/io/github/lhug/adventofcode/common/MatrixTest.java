@@ -15,7 +15,7 @@ public class MatrixTest {
 				new char[] {'c', 'c', 'c'}
 		};
 
-		var result = Matrix.copy(in);
+		var result = Matrix.copyChars(in);
 
 		assertThat(result)
 				.isEqualTo(in)
@@ -24,13 +24,13 @@ public class MatrixTest {
 
 	@Test
 	void throws_exception_when_matrix_is_null() {
-		assertThatThrownBy(() -> Matrix.copy(null))
+		assertThatThrownBy(() -> Matrix.copyChars(null))
 				.isInstanceOf(NullPointerException.class);
 	}
 
 	@Test
 	void throws_exception_when_copying_array_with_initial_null_array() {
-		assertThatThrownBy(() -> Matrix.copy(new char[][]{
+		assertThatThrownBy(() -> Matrix.copyChars(new char[][]{
 				null
 		}))
 				.isInstanceOf(NullPointerException.class);
@@ -38,7 +38,7 @@ public class MatrixTest {
 
 	@Test
 	void throws_exception_when_copying_array_with_null_array() {
-		assertThatThrownBy(() -> Matrix.copy(new char[][]{
+		assertThatThrownBy(() -> Matrix.copyChars(new char[][]{
 				new char[]{'a', 'a', 'a'},
 				null
 		}))

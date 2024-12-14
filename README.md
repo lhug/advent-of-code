@@ -2,6 +2,20 @@
 
 This contains my implementations for advent of code.
 
+## 2024, Day 14, phase two
+
+Had to take inspiration and a little help from the LLM.
+LLM told me how to compute the max amount of steps before any pattern repeats,
+so I only need to check a limited amount of frames.
+However, I must have gotten REALLY lucky. I looked for frames with horizontal lines.
+I found *one*, so that was good, *and* it turned out to be the correct frame, so yay me :D
+
+However, printing the frame (because OF COURSE I want to see the tree) showed me that
+my examination should not have yielded a potential Christmas tree at this frame.
+There is no line containing only a continuous line of robots. And therefore,
+the checks SHOULD have failed. Also, I had no idea how to test this, so I feel very bad :D
+Christmas miracle, maybe? :)
+
 ## 2024, Day 14, phase one
 
 Silly, silly stuff. Off by ones repeatedly, forgetting that

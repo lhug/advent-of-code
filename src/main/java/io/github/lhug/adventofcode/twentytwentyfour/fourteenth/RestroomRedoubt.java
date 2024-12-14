@@ -1,12 +1,10 @@
 package io.github.lhug.adventofcode.twentytwentyfour.fourteenth;
 
 import io.github.lhug.adventofcode.common.Coordinate;
+import io.github.lhug.adventofcode.common.Matrix;
 import io.github.lhug.adventofcode.common.Vector;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class RestroomRedoubt {
@@ -82,6 +80,86 @@ public class RestroomRedoubt {
 				.reduce(1L, Math::multiplyExact);
 
 	}
+
+	public int[] christmasTree(int[][] grid, boolean print) {
+		var maxSteps = 10_403; // repeating after this
+		return IntStream.rangeClosed(1, maxSteps)
+				.mapToObj(i -> patternFrame(i, grid))
+				.filter(this::hasUniquePositions)
+				.filter(this::isPotentialChristmasTree)
+				.peek(frame -> {
+					if (print) {
+						printFrame(frame, grid);
+					}
+				})
+				.mapToInt(Frame::steps)
+				.toArray();
+	}
+
+	private void printFrame(Frame frame, int[][] grid) {
+		var img = fill(grid);
+		for(Coordinate position : frame.positions) {
+			img[position.y()][position.x()] = '*';
+		}
+		Arrays.stream(img)
+				.map(String::new)
+				.forEach(System.out::println);
+	}
+
+	private char[][] fill(int[][] grid) {
+		char[][] copy = new char[grid.length][grid[0].length];
+		for (int y = 0; y < copy.length; y++) {
+			for (int x = 0; x < copy[0].length; x++) {
+				copy[y][x] = '.';
+			}
+		}
+		return copy;
+	}
+
+	private boolean isPotentialChristmasTree(Frame frame) {
+		Map<Integer, SortedSet<Coordinate>> groups = new HashMap<>();
+		for(Coordinate position : frame.positions()) {
+			groups.computeIfAbsent(
+					position.y(),
+					__ -> new TreeSet<>(Comparator.comparing(Coordinate::x)))
+					.add(position);
+		}
+		var lines = IntStream.rangeClosed(1, groups.size())
+				.mapToObj(i -> groups.getOrDefault(i, new TreeSet<>()))
+				.filter(this::isStraightLine)
+				.count();
+		return lines != 0;
+	}
+
+	private boolean isStraightLine(SortedSet<Coordinate> offer) {
+		Coordinate compare = null;
+		for(Coordinate position : offer) {
+			if (compare == null) {
+				compare = position;
+			} else {
+				if(position.x() - compare.x() != 1) {
+					return false;
+				} else {
+					compare = position;
+				}
+			}
+		}
+		return true;
+	}
+
+	private boolean hasUniquePositions(Frame frame) {
+		var asSet = new HashSet<>(frame.positions);
+		return frame.positions.size() == asSet.size();
+	}
+
+	private Frame patternFrame(int steps, int[][] grid) {
+		var positions =  raw.stream()
+				.map(r -> r.move(steps, grid))
+				.toList();
+		return new Frame(steps, positions);
+	}
+
+	record Frame(int steps, List<Coordinate> positions) {}
 
 	record Quadrant(int left, int right, int upper, int lower) {
 		boolean inQuadrant(Coordinate c) {

@@ -16,6 +16,8 @@ import io.github.lhug.adventofcode.twentytwentyfour.third.MullItOver;
 import io.github.lhug.adventofcode.twentytwentyfour.thirteenth.ClawContraption;
 import io.github.lhug.adventofcode.twentytwentyfour.twelfth.GardenGroups;
 
+import java.util.Arrays;
+
 public class Days {
 
 	private final ResourceReader reader = ResourceReader.year(2024);
@@ -158,5 +160,7 @@ public class Days {
 		var rr = new RestroomRedoubt(in);
 		var day14_1 = rr.safetyFactor(100, new int[103][101]);
 		System.out.println("Safety factor 1: " + day14_1);
+		var day14_2 = rr.christmasTree(new int[103][101], false);
+		System.out.println("Christmas Tree at: " + Arrays.toString(day14_2));
 	}
 }

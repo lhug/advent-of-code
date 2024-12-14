@@ -30,7 +30,7 @@ public class GardenGroups {
 	}
 
 	private void parseRegion(Set<Coordinate> visited, Coordinate start) {
-		var gridCopy = Matrix.copy(grid);
+		var gridCopy = Matrix.copyChars(grid);
 		Deque<Coordinate> toVisit = new LinkedList<>();
 		toVisit.add(start);
 		Coordinate current;
