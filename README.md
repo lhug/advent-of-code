@@ -16,6 +16,11 @@ There is no line containing only a continuous line of robots. And therefore,
 the checks SHOULD have failed. Also, I had no idea how to test this, so I feel very bad :D
 Christmas miracle, maybe? :)
 
+Nope. turns out, I was just REALLY lucky:
+A single line contains nothing but two stars next to one another, meaning that is a horizontal line.
+It is the line on index 92, which has this lucky configuration.
+So: I win, I had the right idea, but DAMN that was a lucky coincidence :D
+
 ## 2024, Day 14, phase one
 
 Silly, silly stuff. Off by ones repeatedly, forgetting that
